@@ -5,7 +5,7 @@ Created on 30 Nov 2012
 '''
 
 from CommandParser import *
-players = []
+#players = []
 
 def handle(args):
     #print "Command Players: %s::" % args

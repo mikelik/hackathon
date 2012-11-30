@@ -6,10 +6,11 @@ Created on 30-11-2012
 
 import CmdPlayers
 import CmdHand
+import CmdCondottiere
 
 cards = []
 regions = ['Torino','Milano','Venezia','Genova','Mantova','Parma','Modena','Ferrara','Bologna','Lucca','Firenze','Siena','Spoleto','Urbino','Ancona','Roma','Napoli']
-players = []
+players = ['Torino2']
 
 def extractCommand(args):
     if (len(args) == 0):
@@ -22,10 +23,12 @@ def extractCommand(args):
 
 
 def parseCommand(args):
+    print 'parseCommand: %s::\n' % args
     while(len(args) > 0):
         if 'GameStart' == extractCommand(args):
             print 'GameStart'
-            args = ''
+            pos = args.find('\n')
+            args = args[pos:]
         
         if 'GameEnd' == extractCommand(args):
             print 'GameEnd'
@@ -50,7 +53,7 @@ def parseCommand(args):
         
         if 'Hand' == extractCommand(args):
             print 'Hand'
-            CmdHand.handle(args);
+            args = CmdHand.handle(args);
         
         if 'Player' == extractCommand(args):
             print 'Player'

@@ -6,6 +6,7 @@ Created on 30-11-2012
 
 import CmdPlayers
 import CmdHand
+import CmdCondottiere
 
 cards = []
 regions = ['Torino','Milano','Venezia','Genova','Mantova','Parma','Modena','Ferrara','Bologna','Lucca','Firenze','Siena','Spoleto','Urbino','Ancona','Roma','Napoli']
@@ -78,3 +79,5 @@ def parseCommand(args):
         
         if 'Score' == extractCommand(args):
             print 'Score'
+            
+        args.split('\n')[1:]

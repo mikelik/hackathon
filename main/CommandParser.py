@@ -25,31 +25,34 @@ def parseCommand(args):
     while(len(args) > 0):
         if 'GameStart' == extractCommand(args):
             print 'GameStart'
-            args.pop()
+            args = args[1:]
             
         elif 'GameEnd' == extractCommand(args):
             print 'GameEnd'
-            args.pop()
+            args = args[1:]
         
         elif 'RoundStart' == extractCommand(args):
             print 'RoundStart'
-            args.pop()
+            args = args[1:]
             
         elif 'BattleStart' == extractCommand(args):
             print 'BattleStart'
-            args.pop()
+            args = args[1:]
 
         elif 'BattleEnd' == extractCommand(args):
             print 'BattleEnd'    
+            args = args[1:]
         
         elif 'RoundEnd' == extractCommand(args):
             print 'RoundEnd'
+            args = args[1:]
         
         elif 'Players' == extractCommand(args):
             args = CmdPlayers.handle(args)
         
         elif 'Order' == extractCommand(args):
             print 'Order'
+            args = args[1:]
         
         elif 'Hand' == extractCommand(args):
             print 'Hand'
@@ -57,9 +60,11 @@ def parseCommand(args):
         
         elif 'Player' == extractCommand(args):
             print 'Player'
+            args = args[1:]
         
         elif 'CurrentZone' == extractCommand(args):
             print 'CurrentZone'
+            args = args[1:]
             
         elif '?Condottiere' == extractCommand(args):
             args = CmdCondottiere.handle(args)
@@ -69,16 +74,21 @@ def parseCommand(args):
         
         elif 'Pass' == extractCommand(args):
             print 'Pass'    
+            args = args[1:]
         
         elif 'Play' == extractCommand(args):
             print 'Play'
+            args = args[1:]
         
         elif 'Protect' == extractCommand(args):
             print 'Protect'
+            args = args[1:]
         
         elif 'Retrieve' == extractCommand(args):
             print 'Retrieve'
+            args = args[1:]
         
         elif 'Score' == extractCommand(args):
             print 'Score'
+            args = args[1:]
             

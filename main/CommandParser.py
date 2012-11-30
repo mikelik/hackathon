@@ -4,57 +4,64 @@ Created on 30-11-2012
 @author: Przemek
 '''
 
-def extractCommand(input):
-    return input.split()[0]
+import CmdPlayers
 
-def parseCommand(input):
-    if 'GameStart' == extractCommand(input):
-        print 'GameStart'
 
-    if 'GameEnd' == extractCommand(input):
-        print 'GameEnd'
+def extractCommand(args):
+    if (len(args) == 0):
+        return ''
+    return args.split()[0]
 
-    if 'RoundStart' == extractCommand(input):
-        print ''
+def parseCommand(args):
+    while(len(args) > 0):
+        if 'GameStart' == extractCommand(args):
+            print 'GameStart'
+            args = ''
         
-    if 'BattleStart' == extractCommand(input):
-        print 'BattleStart'
-
-    if 'BattleEnd' == extractCommand(input):
-        print 'BattleEnd'    
-
-    if 'RoundEnd' == extractCommand(input):
-        print 'RoundEnd'
-
-    if 'Players' == extractCommand(input):
-        print 'Players'
-
-    if 'Order' == extractCommand(input):
-        print 'Order'
-
-    if 'Hand' == extractCommand(input):
-        print 'Hand'    
-
-    if 'Player' == extractCommand(input):
-        print 'Player'
-
-    if 'CurrentZone' == extractCommand(input):
-        print 'CurrentZone'
-
-    if 'Player' == extractCommand(input):
-        print 'Player'
-
-    if 'Pass' == extractCommand(input):
-        print 'Pass'    
-
-    if 'Play' == extractCommand(input):
-        print 'Play'
-
-    if 'Protect' == extractCommand(input):
-        print 'Protect'
-
-    if 'Retrieve' == extractCommand(input):
-        print 'Retrieve'
-
-    if 'Score' == extractCommand(input):
-        print 'Score'
+        if 'GameEnd' == extractCommand(args):
+            print 'GameEnd'
+        
+        if 'RoundStart' == extractCommand(args):
+            print ''
+            
+        if 'BattleStart' == extractCommand(args):
+            print 'BattleStart'
+        
+        if 'BattleEnd' == extractCommand(args):
+            print 'BattleEnd'    
+        
+        if 'RoundEnd' == extractCommand(args):
+            print 'RoundEnd'
+        
+        if 'Players' == extractCommand(args):
+            args = CmdPlayers.handle(args)
+        
+        if 'Order' == extractCommand(args):
+            print 'Order'
+        
+        if 'Hand' == extractCommand(args):
+            print 'Hand'    
+        
+        if 'Player' == extractCommand(args):
+            print 'Player'
+        
+        if 'CurrentZone' == extractCommand(args):
+            print 'CurrentZone'
+        
+        #if 'Player' == extractCommand(args):
+        #    print 'Player'
+        
+        if 'Pass' == extractCommand(args):
+            print 'Pass'    
+        
+        if 'Play' == extractCommand(args):
+            print 'Play'
+        
+        if 'Protect' == extractCommand(args):
+            print 'Protect'
+        
+        if 'Retrieve' == extractCommand(args):
+            print 'Retrieve'
+        
+        if 'Score' == extractCommand(args):
+            print 'Score'

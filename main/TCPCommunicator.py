@@ -25,5 +25,16 @@ def getMessage():
     read = sock.recv(1024)
     if not read:
         print 'no data received'
-    print repr(read)
+    return repr(read)
+    
+def getMessageWait():
+    print 'waiting\n'
+    for x in range(5):
+        read = sock.recv(1024)
+        if not read:
+            print 'no data received'
+        else:
+            return read
+
+    
     

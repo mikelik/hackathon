@@ -19,11 +19,11 @@ class Test(unittest.TestCase):
 
 
     def testName(self):
-        TCPCommunicator.connect('localhost', 9999)
+        TCPCommunicator.connect('192.168.3.103', 50008)
         TCPCommunicator.sendMessage('test')
-        TCPCommunicator.getMessage()
+        print TCPCommunicator.getMessage()
         TCPCommunicator.sendMessage('testmikel')
-        TCPCommunicator.getMessage()
+        print TCPCommunicator.getMessage()
         TCPCommunicator.disconnect()
 
 

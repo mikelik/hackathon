@@ -10,7 +10,7 @@ import CmdCondottiere
 
 cards = []
 regions = ['Torino','Milano','Venezia','Genova','Mantova','Parma','Modena','Ferrara','Bologna','Lucca','Firenze','Siena','Spoleto','Urbino','Ancona','Roma','Napoli']
-players = ['Torino2']
+players = []
 
 def extractCommand(args):
     line = args[0]

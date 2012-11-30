@@ -5,7 +5,7 @@ Created on 30 Nov 2012
 '''
 
 import CommandParser
-#players = []
+
 
 def handle(args):
     for index in range(1, len(args)-1):

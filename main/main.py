@@ -17,7 +17,15 @@ if __name__ == '__main__':
         
         TCPCommunicator.connect(server, int(ip))
         TCPCommunicator.sendMessage('AUTH ' + password)
-        print TCPCommunicator.getMessageWait()
+        x = TCPCommunicator.getMessageWait()
+    
+    
+        while True:
+            if x[0] == '?':
+                TCPCommunicator.sendMessage('Milano')
+                          
+        
+            
     
         print TCPCommunicator.getMessageWait()
         print TCPCommunicator.getMessageWait()

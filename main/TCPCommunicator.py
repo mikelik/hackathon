@@ -6,6 +6,7 @@ Created on 30-11-2012
 
 import socket
 import sys
+import time
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
@@ -19,7 +20,7 @@ def disconnect():
 
 def sendMessage(message):
         print "sending message: %s" % message
-        sock.sendall(message)
+        sock.sendall(message + '\r\n')
 
 def getMessage():
     print 'reading\n'
@@ -30,7 +31,7 @@ def getMessage():
     
 def getMessageWait():
     print 'waiting\n'
-    for x in range(5):
+    for x in range(50):
         try:
             read = sock.recv(1024)
         except:
@@ -38,6 +39,7 @@ def getMessageWait():
          
         if not read:
             print 'no data received'
+            time.sleep(0.5)
         else:
             return read
 

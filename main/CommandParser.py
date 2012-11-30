@@ -7,6 +7,7 @@ Created on 30-11-2012
 import CmdPlayers
 import CmdHand
 import CmdCondottiere
+import re
 
 cards = []
 regions = ['Torino','Milano','Venezia','Genova','Mantova','Parma','Modena','Ferrara','Bologna','Lucca','Firenze','Siena','Spoleto','Urbino','Ancona','Roma','Napoli']
@@ -54,63 +55,81 @@ m[ix('Spoleto')][ix('Napoli')]=m[ix('Napoli')][ix('Spoleto')]=1
 m[ix('Roma')][ix('Napoli')]=m[ix('Napoli')][ix('Roma')]=1
 
 
+command = re.compile('^\s*(\w+)')
+empty_line = re.compile('^\s*$')
 
 def extractCommand(args):
     line = args[0]
-    if (len(line) == 0):
+    if (empty_line.match(line)):
         return ''
-    #if line regexp 
-    return line.split()[0]
+    #print "Matching :%s:" % line
+    match = command.match(line)
+    if match is None:
+        return ''
+    return match.group(1)
 
 
 def parseCommand(args):
-    print 'parseCommand: %s::\n' % args
+    print '---parseCommand: %s::\n' % args
     while(len(args) > 0):
-        if 'GameStart' == extractCommand(args):
+        cmd = extractCommand(args)
+        if 'GameStart' == cmd:
             print 'GameStart'
             args = args[1:]
+            continue
             
-        elif 'GameEnd' == extractCommand(args):
+        if 'GameEnd' == extractCommand(args):
             print 'GameEnd'
             args = args[1:]
+            continue
         
         elif 'RoundStart' == extractCommand(args):
             print 'RoundStart'
             args = args[1:]
+            continue
             
         elif 'BattleStart' == extractCommand(args):
             print 'BattleStart'
             args = args[1:]
+            continue
 
         elif 'BattleEnd' == extractCommand(args):
             print 'BattleEnd'    
             args = args[1:]
+            continue
         
         elif 'RoundEnd' == extractCommand(args):
             print 'RoundEnd'
             args = args[1:]
+            continue
         
         elif 'Players' == extractCommand(args):
             args = CmdPlayers.handle(args)
+            continue
         
         elif 'Order' == extractCommand(args):
             print 'Order'
             args = args[1:]
+            continue
         
         elif 'Hand' == extractCommand(args):
             print 'Hand'
             args = CmdHand.handle(args);
+            continue
         
         elif 'Player' == extractCommand(args):
             print 'Player'
             args = args[1:]
+            continue
         
         elif 'CurrentZone' == extractCommand(args):
             print 'CurrentZone'
             args = args[1:]
+            continue
             
         elif '?Condottiere' == extractCommand(args):
             args = CmdCondottiere.handle(args)
+            continue
         
         #if 'Player' == extractCommand(args):
         #    print 'Player'
@@ -118,20 +137,33 @@ def parseCommand(args):
         elif 'Pass' == extractCommand(args):
             print 'Pass'    
             args = args[1:]
+            continue
         
         elif 'Play' == extractCommand(args):
             print 'Play'
             args = args[1:]
+            continue
         
         elif 'Protect' == extractCommand(args):
             print 'Protect'
             args = args[1:]
+            continue
         
         elif 'Retrieve' == extractCommand(args):
             print 'Retrieve'
             args = args[1:]
+            continue
         
         elif 'Score' == extractCommand(args):
             print 'Score'
             args = args[1:]
+            continue
             
+        if (len(args) > 0):
+            print "Unhandled data :%s:\n" % args[0]
+            args = args[1:] ## todo nedds 
+
+
+
+
+

@@ -6,6 +6,8 @@ Created on 30-11-2012
 import TCPCommunicator
 import CommandParser
 
+       
+
 if __name__ == '__main__':
     configFile = open('../startup-info', 'r')
     configText = configFile.read()

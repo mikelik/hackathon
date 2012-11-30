@@ -81,3 +81,5 @@ def parseCommand(args):
         
         if 'Score' == extractCommand(args):
             print 'Score'
+            
+        args.split('\n')[1:]

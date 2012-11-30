@@ -9,9 +9,14 @@ import TCPCommunicator
 import random
 
 def handle(args):
-    print 'Move: ' + CommandParser.cards
-    ran = random.randint(0,len(CommandParser.cards)-1)
-    resp = CommandParser.cards[ran]
+    print 'Move: '
+    print CommandParser.cards
+    resp = None
+    if len(CommandParser.cards) <= 0:
+        resp = 'pass'
+    else:
+        ran = random.randint(0,len(CommandParser.cards)-1)
+        resp = CommandParser.cards[ran]
+        CommandParser.cards.remove(resp)
     TCPCommunicator.sendMessage(resp)
-    CommandParser.cards.remove(ran)
     return args[1:]

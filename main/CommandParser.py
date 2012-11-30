@@ -9,7 +9,7 @@ import CmdHand
 import CmdCondottiere
 import CmdCurrentzone
 import re
-import CmdBattleStart, CmdBattleEnd, CmdMove
+import CmdBattleStart, CmdBattleEnd, CmdMove, CmdBishop, CmdRetrieve
 
 
 cards = []

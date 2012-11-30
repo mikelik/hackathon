@@ -4,7 +4,7 @@ Created on 30 Nov 2012
 @author: Czeslaw
 '''
 
-from main import CommandParser
+import CommandParser
 
 def handle(args):
     print "Command BattlStart: %s::" % args

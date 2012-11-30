@@ -45,7 +45,7 @@ def parseCommand(args):
         
         if 'Hand' == extractCommand(args):
             print 'Hand'
-            CmdHand.handle(args);
+            args = CmdHand.handle(args);
         
         if 'Player' == extractCommand(args):
             print 'Player'

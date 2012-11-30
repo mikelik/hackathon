@@ -4,6 +4,7 @@ Created on 30-11-2012
 @author: mikel
 '''
 import unittest
+from main import TCPCommunicator
 
 
 class Test(unittest.TestCase):
@@ -18,7 +19,8 @@ class Test(unittest.TestCase):
 
 
     def testName(self):
-        pass
+        TCPCommunicator.sendMessage('test')
+        TCPCommunicator.sendMessage('testmikel')
 
 
 if __name__ == "__main__":

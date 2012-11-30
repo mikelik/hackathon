@@ -25,7 +25,7 @@ m[ix('Torino')][ix('Genova')]=m[ix('Genova')][ix('Torino')]=1
 m[ix('Milano')][ix('Venezia')]=m[ix('Venezia')][ix('Milano')]=1
 m[ix('Milano')][ix('Mantova')]=m[ix('Mantova')][ix('Milano')]=1
 m[ix('Milano')][ix('Modena')]=m[ix('Modena')][ix('Milano')]=1
-m[ix('Milano')][ix('Parm')]=m[ix('Parm')][ix('Milano')]=1
+m[ix('Milano')][ix('Parma')]=m[ix('Parma')][ix('Milano')]=1
 m[ix('Venezia')][ix('Mantova')]=m[ix('Mantova')][ix('Venezia')]=1
 m[ix('Venezia')][ix('Ferrara')]=m[ix('Ferrara')][ix('Venezia')]=1
 m[ix('Mantova')][ix('Modena')]=m[ix('Modena')][ix('Mantova')]=1

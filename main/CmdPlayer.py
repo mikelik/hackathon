@@ -8,4 +8,6 @@ import CommandParser
 
 def handle(args):
     print 'Command Player'
-    return args
+    CommandParser.currentPlayer=args[0].split()[1]
+    print CommandParser.currentPlayer
+    return args[1:]

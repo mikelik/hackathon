@@ -9,7 +9,7 @@ import CmdHand
 import CmdCondottiere
 import CmdCurrentzone
 import re
-import CmdBattleStart, CmdBattleEnd, CmdMove, CmdBishop, CmdRetrieve
+import CmdBattleStart, CmdBattleEnd, CmdMove, CmdBishop, CmdRetrieve, CmdPlayer
 
 
 cards = []
@@ -125,8 +125,7 @@ def parseCommand(args):
             continue
         
         if 'Player' == cmd:
-            print 'Player'
-            args = args[1:]
+            args = CmdPlayer.handle(args)
             continue
         
         if 'CurrentZone' == cmd:

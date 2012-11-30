@@ -8,5 +8,7 @@ from CommandParser import *
 import random
 
 def handle(args):
-    TCPCommunicator.sendMessage(regions(random.randint(0,len(regions)-1)))
+    resp = regions(random.randint(0,len(regions)-1))
+    print "Condottiere :%s:" % resp
+    TCPCommunicator.sendMessage(resp)
     return args[1:]

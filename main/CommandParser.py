@@ -70,7 +70,7 @@ def extractCommand(args):
 
 
 def parseCommand(args):
-    print '---parseCommand: %s::\n' % args
+    #print '---parseCommand: %s::\n' % args
     while(len(args) > 0):
         cmd = extractCommand(args)
         if 'GameStart' == cmd:
@@ -78,83 +78,83 @@ def parseCommand(args):
             args = args[1:]
             continue
             
-        if 'GameEnd' == extractCommand(args):
+        if 'GameEnd' == cmd:
             print 'GameEnd'
             args = args[1:]
             continue
         
-        elif 'RoundStart' == extractCommand(args):
+        if 'RoundStart' == cmd:
             print 'RoundStart'
             args = args[1:]
             continue
             
-        elif 'BattleStart' == extractCommand(args):
+        if 'BattleStart' == cmd:
             print 'BattleStart'
             args = args[1:]
             continue
 
-        elif 'BattleEnd' == extractCommand(args):
+        if 'BattleEnd' == cmd:
             print 'BattleEnd'    
             args = args[1:]
             continue
         
-        elif 'RoundEnd' == extractCommand(args):
+        if 'RoundEnd' == cmd:
             print 'RoundEnd'
             args = args[1:]
             continue
         
-        elif 'Players' == extractCommand(args):
+        if 'Players' == cmd:
             args = CmdPlayers.handle(args)
             continue
         
-        elif 'Order' == extractCommand(args):
+        if 'Order' == cmd:
             print 'Order'
             args = args[1:]
             continue
         
-        elif 'Hand' == extractCommand(args):
+        if 'Hand' == cmd:
             print 'Hand'
             args = CmdHand.handle(args);
             continue
         
-        elif 'Player' == extractCommand(args):
+        if 'Player' == cmd:
             print 'Player'
             args = args[1:]
             continue
         
-        elif 'CurrentZone' == extractCommand(args):
+        if 'CurrentZone' == cmd:
             print 'CurrentZone'
             args = args[1:]
             continue
             
-        elif '?Condottiere' == extractCommand(args):
+        if '?Condottiere' == cmd:
             args = CmdCondottiere.handle(args)
             continue
         
-        #if 'Player' == extractCommand(args):
+        #if 'Player' == cmd:
         #    print 'Player'
         
-        elif 'Pass' == extractCommand(args):
+        if 'Pass' == cmd:
             print 'Pass'    
             args = args[1:]
             continue
         
-        elif 'Play' == extractCommand(args):
+        if 'Play' == cmd:
             print 'Play'
             args = args[1:]
             continue
         
-        elif 'Protect' == extractCommand(args):
+        if 'Protect' == cmd:
             print 'Protect'
             args = args[1:]
             continue
         
-        elif 'Retrieve' == extractCommand(args):
+        if 'Retrieve' == cmd:
             print 'Retrieve'
             args = args[1:]
             continue
         
-        elif 'Score' == extractCommand(args):
+        if 'Score' == cmd:
             print 'Score'
             args = args[1:]
             continue

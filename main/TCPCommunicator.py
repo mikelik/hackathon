@@ -18,7 +18,7 @@ def disconnect():
 
 def sendMessage(message):
         print "sending message: %s" % message
-        sock.sendall(message)
+        sock.sendall(message + '\r\n')
 
 def getMessage():
     print 'reading\n'

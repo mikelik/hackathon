@@ -9,7 +9,7 @@ import CmdHand
 import CmdCondottiere
 import CmdCurrentzone
 import re
-import CmdBattleStart, CmdBattleEnd
+import CmdBattleStart, CmdBattleEnd, CmdMove
 
 
 cards = []
@@ -133,7 +133,9 @@ def parseCommand(args):
         if '?Condottiere' == cmd:
             args = CmdCondottiere.handle(args)
             continue
-        
+
+        if '?Move' == cmd:
+            args = CmdMove.handle(args)        
         #if 'Player' == cmd:
         #    print 'Player'
         

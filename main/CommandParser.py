@@ -134,6 +134,14 @@ def parseCommand(args):
             args = CmdCondottiere.handle(args)
             continue
         
+        if '?Bishop' == cmd:
+            args = CmdBishop.handle(args)
+            continue
+        
+        if '?Retrieve' == cmd:
+            args = CmdRetrieve.handle(args)
+            continue
+        
         #if 'Player' == cmd:
         #    print 'Player'
         

@@ -9,6 +9,6 @@ import random
 
 def handle(args):
     resp = 'pass'
-    print "Retrieve :%s:" % resp
+    print "Bishop :%s:" % resp
     TCPCommunicator.sendMessage(resp)
     return args[1:]

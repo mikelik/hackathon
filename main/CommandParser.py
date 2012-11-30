@@ -8,13 +8,18 @@ import CmdPlayers
 import CmdHand
 
 cards = []
-regions = []
+regions = ['Torino','Milano','Venezia','Genova','Mantova','Parma','Modena','Ferrara','Bologna','Lucca','Firenze','Siena','Spoleto','Urbino','Ancona','Roma','Napoli']
 players = []
 
 def extractCommand(args):
     if (len(args) == 0):
         return ''
-    return args.split()[0]
+    try:
+        return args.split()[0]
+    finally:
+        return args[0]
+    
+
 
 def parseCommand(args):
     while(len(args) > 0):
@@ -45,13 +50,16 @@ def parseCommand(args):
         
         if 'Hand' == extractCommand(args):
             print 'Hand'
-            args = CmdHand.handle(args);
+            CmdHand.handle(args);
         
         if 'Player' == extractCommand(args):
             print 'Player'
         
         if 'CurrentZone' == extractCommand(args):
             print 'CurrentZone'
+            
+        if '?Condottiere' == extractCommand(args):
+            args = CmdCondottiere.handle(args)
         
         #if 'Player' == extractCommand(args):
         #    print 'Player'

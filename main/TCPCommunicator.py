@@ -39,7 +39,7 @@ def getMessageWait():
          
         if not read:
             print 'no data received'
-            time.sleep(0.5)
+            time.sleep(1)
         else:
             return read
 

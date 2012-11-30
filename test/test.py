@@ -19,8 +19,8 @@ class Test(unittest.TestCase):
 
 
     def testName(self):
-        TCPCommunicator.connect('localhost', 9999)
-        TCPCommunicator.sendMessage('test')
+        TCPCommunicator.connect('localhost', 50008)
+        TCPCommunicator.sendMessage('Witojcie')
         TCPCommunicator.getMessage()
         TCPCommunicator.sendMessage('testmikel')
         TCPCommunicator.getMessage()

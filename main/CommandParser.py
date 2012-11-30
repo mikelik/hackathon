@@ -58,7 +58,7 @@ m[ix('Spoleto')][ix('Napoli')]=m[ix('Napoli')][ix('Spoleto')]=1
 m[ix('Roma')][ix('Napoli')]=m[ix('Napoli')][ix('Roma')]=1
 
 
-command = re.compile('^\s*(\w+)')
+command = re.compile('^\s*([?\w]+)')
 empty_line = re.compile('^\s*$')
 
 def extractCommand(args):
@@ -128,7 +128,6 @@ def parseCommand(args):
         if 'CurrentZone' == cmd:
             print 'CurrentZone'
             args = CmdCurrentzone.handle(args);
-
             continue
             
         if '?Condottiere' == cmd:
@@ -164,7 +163,8 @@ def parseCommand(args):
             continue
             
         if (len(args) > 0):
-            print "Unhandled data :%s:\n" % args[0]
+            print "Unhandled data :%s:" % args[0]
+            print " for command :%s:\n" % cmd
             args = args[1:] ## todo nedds 
 
 

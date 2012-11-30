@@ -7,6 +7,9 @@ Created on 30-11-2012
 import CmdPlayers
 import CmdHand
 import CmdCondottiere
+import CmdCurrentzone
+import CmdBattleStart, CmdBattleEnd
+
 
 cards = []
 regions = ['Torino','Milano','Venezia','Genova','Mantova','Parma','Modena','Ferrara','Bologna','Lucca','Firenze','Siena','Spoleto','Urbino','Ancona','Roma','Napoli']
@@ -80,11 +83,12 @@ def parseCommand(args):
             
         elif 'BattleStart' == extractCommand(args):
             print 'BattleStart'
-            args = args[1:]
+            args = CmdBattleStart.handle(args);
+
 
         elif 'BattleEnd' == extractCommand(args):
-            print 'BattleEnd'    
-            args = args[1:]
+            print 'BattleEnd' 
+            args = CmdBattleEnd.handle(args);  
         
         elif 'RoundEnd' == extractCommand(args):
             print 'RoundEnd'
@@ -107,7 +111,8 @@ def parseCommand(args):
         
         elif 'CurrentZone' == extractCommand(args):
             print 'CurrentZone'
-            args = args[1:]
+            args = CmdCurrentzone.handle(args);
+
             
         elif '?Condottiere' == extractCommand(args):
             args = CmdCondottiere.handle(args)

@@ -4,8 +4,8 @@ Created on 30-11-2012
 @author: mikel
 '''
 import unittest
-from main import TCPCommunicator, CommandParser
-
+from main import TCPCommunicator
+from main import CommandParser
 
 class Test(unittest.TestCase):
 
@@ -26,8 +26,19 @@ class Test(unittest.TestCase):
 #        print TCPCommunicator.getMessage()
 #        TCPCommunicator.disconnect()
 
-    def testParser(self):
-        CommandParser.parseCommand('Hand [1\n2\n3\n4\n5\n6\n7\n8\n9\n10\nCourtesan\nHeroine\nWinter\nSpring\nBishop\nDrummer\nScarecrow\nKey]')
+    #def testParser(self):
+      #  CommandParser.parseCommand('Hand [1\n2\n3\n4\n5\n6\n7\n8\n9\n10\nCourtesan\nHeroine\nWinter\nSpring\nBishop\nDrummer\nScarecrow\nKey]')
+
+    def testBattleEndTie(self):
+        CommandParser.occupiedRegion[CommandParser.ix('Siena')] = 0
+        CommandParser.parseCommand(['CurrentZone Siena','BattleEnd tie'])
+        assert(CommandParser.occupiedRegion[CommandParser.ix('Siena')] == 0)
+        
+    def testBattleEnd(self):
+        CommandParser.occupiedRegion[CommandParser.ix('Siena')] = 0
+        CommandParser.parseCommand(['CurrentZone Siena','BattleEnd red'])
+        assert(CommandParser.occupiedRegion[CommandParser.ix('Siena')] == 1)
+
 
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']

@@ -21,6 +21,8 @@ occupiedRegion = [0]*len(regions)
 
 ourRegion  = [0]*len(regions)
 currentZone = None
+currentPlayer = None
+ourPlayer = None
 
 def ix(region):
     return regionsMap[region]

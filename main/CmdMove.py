@@ -19,4 +19,5 @@ def handle(args):
         resp = CommandParser.cards[ran]
         CommandParser.cards.remove(resp)
     TCPCommunicator.sendMessage(resp)
+    CommandParser.ourPlayer = CommandParser.currentPlayer
     return args[1:]

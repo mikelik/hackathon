@@ -3,11 +3,11 @@ Created on 30-11-2012
 
 @author: mikel
 '''
-from main import TCPCommunicator
+import TCPCommunicator
 
 if __name__ == '__main__':
     
-        configFile = open('startup-info', 'r')
+        configFile = open('../startup-info', 'r')
         configText = configFile.read()
         
         configParsed = configText.split()
@@ -15,7 +15,7 @@ if __name__ == '__main__':
         ip = configParsed[0].split(':')[1]
         password = configParsed[1]
         
-        TCPCommunicator.connect(server, ip)
+        TCPCommunicator.connect(server, int(ip))
         TCPCommunicator.sendMessage('test')
         print TCPCommunicator.getMessage()
         TCPCommunicator.sendMessage('testmikel')

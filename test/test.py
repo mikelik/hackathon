@@ -29,6 +29,10 @@ class Test(unittest.TestCase):
     #def testParser(self):
       #  CommandParser.parseCommand('Hand [1\n2\n3\n4\n5\n6\n7\n8\n9\n10\nCourtesan\nHeroine\nWinter\nSpring\nBishop\nDrummer\nScarecrow\nKey]')
 
+    def testCondottiere(self):
+        args = ['blue','clients=red','RoundStart 1','Hand ',['Courtesan','Key','5','4','2','Drummer','Bishop','5','3','4'],'BattleStart','1','Order',['blue','red'],'?Condottiere']
+        CommandParser.parseCommand(args)
+
     def testRoundStart(self):
         inputArray = ['RoundStart 1', 'Hand [', 'Drummer', 'Drummer', 'Courtesan', 'Heroine', 'Spring', '4', '2', 'Heroine', 'Courtesan', 'Courtesan', ']', 'BattleStart 1', 'Order [', 'clients=red', ']', '?Condottiere']
         CommandParser.parseCommand(inputArray);

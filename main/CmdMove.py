@@ -5,6 +5,9 @@ Created on 30-11-2012
 '''
 
 import CommandParser
+import TCPCommunicator
 
 def handle():
-    print CommandParser.cards
+    print 'Move: ' + CommandParser.cards
+    for card in CommandParser.cards :
+        TCPCommunicator.sendMessage(card)

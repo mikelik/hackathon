@@ -60,7 +60,10 @@ if __name__ == '__main__':
     TCPCommunicator.connect(server, int(ip))
     TCPCommunicator.sendMessage('AUTH ' + password)
     while True:
-        CommandParser.parseCommand(TCPCommunicator.getMessageWait())
+        args_string = TCPCommunicator.getMessageWait()
+        print "RAW :%s:" % args_string
+        args_list = args_string.splitlines()
+        CommandParser.parseCommand(args_list)
     #while True:
     #    if x[0] == '?':
     #        TCPCommunicator.sendMessage('Milano')

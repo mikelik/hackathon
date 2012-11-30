@@ -9,4 +9,4 @@ import random
 
 def handle(args):
     TCPCommunicator.sendMessage(regions(random.randint(0,len(regions)-1)))
-    return args.split('\n')[1:]
+    return args[1:]

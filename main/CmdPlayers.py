@@ -19,4 +19,4 @@ def handle(args):
             print "Command Players returning: %s::" % ret_data
             return ret_data
         players.append(item)
-    return args.split('\n')[1:]
+

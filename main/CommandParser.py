@@ -5,7 +5,11 @@ Created on 30-11-2012
 '''
 
 import CmdPlayers
+import CmdHand
 
+cards = []
+regions = []
+players = []
 
 def extractCommand(args):
     if (len(args) == 0):
@@ -40,7 +44,8 @@ def parseCommand(args):
             print 'Order'
         
         if 'Hand' == extractCommand(args):
-            print 'Hand'    
+            print 'Hand'
+            CmdHand.handle(args);
         
         if 'Player' == extractCommand(args):
             print 'Player'

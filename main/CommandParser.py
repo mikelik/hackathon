@@ -13,6 +13,8 @@ regions = ['Torino','Milano','Venezia','Genova','Mantova','Parma','Modena','Ferr
 players = []
 
 regionsMap = {'Torino': 0, 'Milano': 1, 'Venezia': 2, 'Genova': 3, 'Mantova': 4, 'Parma': 5, 'Modena': 6, 'Ferrara': 7, 'Bologna': 8,'Lucca':9,'Firenze':10,'Siena':11,'Spoleto':12,'Urbino':13,'Ancona':14,'Roma':15,'Napoli':16 }
+occupiedRegion = [0]*len(regions)
+currentZone = None
 
 def ix(region):
     return regionsMap[region]
@@ -50,6 +52,7 @@ m[ix('Spoleto')][ix('Urbino')]=m[ix('Urbino')][ix('Spoleto')]=1
 m[ix('Spoleto')][ix('Ancona')]=m[ix('Ancona')][ix('Spoleto')]=1
 m[ix('Spoleto')][ix('Napoli')]=m[ix('Napoli')][ix('Spoleto')]=1
 m[ix('Roma')][ix('Napoli')]=m[ix('Napoli')][ix('Roma')]=1
+
 
 
 def extractCommand(args):

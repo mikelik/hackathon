@@ -7,12 +7,15 @@ Created on 30-11-2012
 import CmdPlayers
 import CmdHand
 import CmdCondottiere
+import re
 
 cards = []
 regions = ['Torino','Milano','Venezia','Genova','Mantova','Parma','Modena','Ferrara','Bologna','Lucca','Firenze','Siena','Spoleto','Urbino','Ancona','Roma','Napoli']
 players = []
 
 regionsMap = {'Torino': 0, 'Milano': 1, 'Venezia': 2, 'Genova': 3, 'Mantova': 4, 'Parma': 5, 'Modena': 6, 'Ferrara': 7, 'Bologna': 8,'Lucca':9,'Firenze':10,'Siena':11,'Spoleto':12,'Urbino':13,'Ancona':14,'Roma':15,'Napoli':16 }
+occupiedRegion = [0]*len(regions)
+currentZone = None
 
 def ix(region):
     return regionsMap[region]
@@ -52,83 +55,115 @@ m[ix('Spoleto')][ix('Napoli')]=m[ix('Napoli')][ix('Spoleto')]=1
 m[ix('Roma')][ix('Napoli')]=m[ix('Napoli')][ix('Roma')]=1
 
 
+command = re.compile('^\s*(\w+)')
+empty_line = re.compile('^\s*$')
+
 def extractCommand(args):
     line = args[0]
-    if (len(line) == 0):
+    if (empty_line.match(line)):
         return ''
-    #if line regexp 
-    return line.split()[0]
+    #print "Matching :%s:" % line
+    match = command.match(line)
+    if match is None:
+        return ''
+    return match.group(1)
 
 
 def parseCommand(args):
-    print 'parseCommand: %s::\n' % args
+    #print '---parseCommand: %s::\n' % args
     while(len(args) > 0):
-        if 'GameStart' == extractCommand(args):
+        cmd = extractCommand(args)
+        if 'GameStart' == cmd:
             print 'GameStart'
             args = args[1:]
+            continue
             
-        elif 'GameEnd' == extractCommand(args):
+        if 'GameEnd' == cmd:
             print 'GameEnd'
             args = args[1:]
+            continue
         
-        elif 'RoundStart' == extractCommand(args):
+        if 'RoundStart' == cmd:
             print 'RoundStart'
             args = args[1:]
+            continue
             
-        elif 'BattleStart' == extractCommand(args):
+        if 'BattleStart' == cmd:
             print 'BattleStart'
             args = args[1:]
+            continue
 
-        elif 'BattleEnd' == extractCommand(args):
+        if 'BattleEnd' == cmd:
             print 'BattleEnd'    
             args = args[1:]
+            continue
         
-        elif 'RoundEnd' == extractCommand(args):
+        if 'RoundEnd' == cmd:
             print 'RoundEnd'
             args = args[1:]
+            continue
         
-        elif 'Players' == extractCommand(args):
+        if 'Players' == cmd:
             args = CmdPlayers.handle(args)
+            continue
         
-        elif 'Order' == extractCommand(args):
+        if 'Order' == cmd:
             print 'Order'
             args = args[1:]
+            continue
         
-        elif 'Hand' == extractCommand(args):
+        if 'Hand' == cmd:
             print 'Hand'
             args = CmdHand.handle(args);
+            continue
         
-        elif 'Player' == extractCommand(args):
+        if 'Player' == cmd:
             print 'Player'
             args = args[1:]
+            continue
         
-        elif 'CurrentZone' == extractCommand(args):
+        if 'CurrentZone' == cmd:
             print 'CurrentZone'
             args = args[1:]
+            continue
             
-        elif '?Condottiere' == extractCommand(args):
+        if '?Condottiere' == cmd:
             args = CmdCondottiere.handle(args)
+            continue
         
-        #if 'Player' == extractCommand(args):
+        #if 'Player' == cmd:
         #    print 'Player'
         
-        elif 'Pass' == extractCommand(args):
+        if 'Pass' == cmd:
             print 'Pass'    
             args = args[1:]
+            continue
         
-        elif 'Play' == extractCommand(args):
+        if 'Play' == cmd:
             print 'Play'
             args = args[1:]
+            continue
         
-        elif 'Protect' == extractCommand(args):
+        if 'Protect' == cmd:
             print 'Protect'
             args = args[1:]
+            continue
         
-        elif 'Retrieve' == extractCommand(args):
+        if 'Retrieve' == cmd:
             print 'Retrieve'
             args = args[1:]
+            continue
         
-        elif 'Score' == extractCommand(args):
+        if 'Score' == cmd:
             print 'Score'
             args = args[1:]
+            continue
             
+        if (len(args) > 0):
+            print "Unhandled data :%s:\n" % args[0]
+            args = args[1:] ## todo nedds 
+
+
+
+
+

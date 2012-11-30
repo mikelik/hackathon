@@ -4,7 +4,9 @@ Created on 30 Nov 2012
 @author: Czeslaw
 '''
 
+from CommandParser import *
+
 def handle(args):
-    print "Command Players: %s::" % args
-    #return args.split('\n')[-1]
+    print "Command zone %s::" % args
+    currentZone = args[0]
     return args[1:]

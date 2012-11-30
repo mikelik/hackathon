@@ -27,7 +27,7 @@ def parseCommand(args):
     while(len(args) > 0):
         if 'GameStart' == extractCommand(args):
             print 'GameStart'
-            pos = args.find('\n')
+            pos = args.find('\n') + 1
             args = args[pos:]
         
         if 'GameEnd' == extractCommand(args):

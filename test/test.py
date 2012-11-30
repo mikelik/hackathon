@@ -26,8 +26,12 @@ class Test(unittest.TestCase):
 #        print TCPCommunicator.getMessage()
 #        TCPCommunicator.disconnect()
 
-    def testParser(self):
-        CommandParser.parseCommand('Hand [1\n2\n3\n4\n5\n6\n7\n8\n9\n10\nCourtesan\nHeroine\nWinter\nSpring\nBishop\nDrummer\nScarecrow\nKey]')
+#    def testParser(self):
+#        CommandParser.parseCommand('Hand [1\n2\n3\n4\n5\n6\n7\n8\n9\n10\nCourtesan\nHeroine\nWinter\nSpring\nBishop\nDrummer\nScarecrow\nKey]')
+
+    def testRoundStart(self):
+        inputArray = ['RoundStart 1', 'Hand [', 'Drummer', 'Drummer', 'Courtesan', 'Heroine', 'Spring', '4', '2', 'Heroine', 'Courtesan', 'Courtesan', ']', 'BattleStart 1', 'Order [', 'clients=red', ']', '?Condottiere']
+        CommandParser.parseCommand(inputArray);
 
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']

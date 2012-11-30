@@ -21,6 +21,7 @@ class Test(unittest.TestCase):
     def testName(self):
         TCPCommunicator.connect('localhost', 9999)
         TCPCommunicator.sendMessage('test')
+        TCPCommunicator.getMessage()
         TCPCommunicator.sendMessage('testmikel')
         TCPCommunicator.getMessage()
         TCPCommunicator.disconnect()

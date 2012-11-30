@@ -22,5 +22,8 @@ def sendMessage(message):
 
 def getMessage():
     print 'reading\n'
-    read = sock.makefile().readline()
-    print read
+    read = sock.recv(1024)
+    if not read:
+        print 'no data received'
+    print repr(read)
+    

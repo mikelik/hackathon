@@ -5,6 +5,5 @@ Created on 30 Nov 2012
 '''
 
 def handle(args):
-    print "Command Players: %s::" % args
-    #return args.split('\n')[-1]
+    print "Command Order: %s::" % args
     return args[1:]

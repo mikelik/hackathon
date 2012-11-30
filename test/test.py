@@ -29,9 +29,9 @@ class Test(unittest.TestCase):
     #def testParser(self):
       #  CommandParser.parseCommand('Hand [1\n2\n3\n4\n5\n6\n7\n8\n9\n10\nCourtesan\nHeroine\nWinter\nSpring\nBishop\nDrummer\nScarecrow\nKey]')
 
-    def testBattleEndTie(self):
-        CommandParser.occupiedRegion[CommandParser.ix('Siena')] = 0
-        CommandParser.parseCommand(['CurrentZone Siena','BattleEnd tie'])
+    def testRoundStart(self):
+        inputArray = ['RoundStart 1', 'Hand [', 'Drummer', 'Drummer', 'Courtesan', 'Heroine', 'Spring', '4', '2', 'Heroine', 'Courtesan', 'Courtesan', ']', 'BattleStart 1', 'Order [', 'clients=red', ']', '?Condottiere']
+        CommandParser.parseCommand(inputArray);
         assert(CommandParser.occupiedRegion[CommandParser.ix('Siena')] == 0)
         
     def testBattleEnd(self):

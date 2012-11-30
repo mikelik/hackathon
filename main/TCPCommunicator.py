@@ -5,6 +5,7 @@ Created on 30-11-2012
 '''
 
 import socket
+import sys
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
@@ -30,7 +31,11 @@ def getMessage():
 def getMessageWait():
     print 'waiting\n'
     for x in range(5):
-        read = sock.recv(1024)
+        try:
+            read = sock.recv(1024)
+        except:
+            print sys.exc_info()
+         
         if not read:
             print 'no data received'
         else:

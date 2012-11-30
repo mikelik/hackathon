@@ -4,7 +4,7 @@ Created on 30-11-2012
 @author: mikel
 '''
 import unittest
-from main import TCPCommunicator
+from main import TCPCommunicator, CommandParser
 
 
 class Test(unittest.TestCase):
@@ -18,14 +18,16 @@ class Test(unittest.TestCase):
         pass
 
 
-    def testName(self):
-        TCPCommunicator.connect('localhost', 50008)
-        TCPCommunicator.sendMessage('Witojcie')
-        print TCPCommunicator.getMessage()
-        TCPCommunicator.sendMessage('testmikel')
-        print TCPCommunicator.getMessage()
-        TCPCommunicator.disconnect()
+#    def testName(self):
+#        TCPCommunicator.connect('localhost', 50008)
+#        TCPCommunicator.sendMessage('Witojcie')
+#        print TCPCommunicator.getMessage()
+#        TCPCommunicator.sendMessage('testmikel')
+#        print TCPCommunicator.getMessage()
+#        TCPCommunicator.disconnect()
 
+    def testParser(self):
+        CommandParser.parseCommand('GameEnd')
 
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']

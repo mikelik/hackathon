@@ -16,7 +16,7 @@ if __name__ == '__main__':
         password = configParsed[1]
         
         TCPCommunicator.connect(server, int(ip))
-        TCPCommunicator.sendMessage('AUTH' + password)
+        TCPCommunicator.sendMessage('AUTH ' + password)
         print TCPCommunicator.getMessageWait()
     
         print TCPCommunicator.getMessageWait()

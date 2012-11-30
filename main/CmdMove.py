@@ -6,8 +6,12 @@ Created on 30-11-2012
 
 import CommandParser
 import TCPCommunicator
+import random
 
-def handle():
+def handle(args):
     print 'Move: ' + CommandParser.cards
-    for card in CommandParser.cards :
-        TCPCommunicator.sendMessage(card)
+    ran = random.randint(0,len(CommandParser.cards)-1)
+    resp = CommandParser.cards[ran]
+    TCPCommunicator.sendMessage(resp)
+    CommandParser.cards.remove(ran)
+    return args[1:]

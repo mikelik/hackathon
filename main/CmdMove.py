@@ -49,6 +49,7 @@ def handle(args):
         CommandParser.maxiSecond = 0
                 
         for user in CommandParser.scoreMap.keys():
+            print 'Max calculation for user=' + user
             if (CommandParser.maxi <= CommandParser.scoreMap[user]):
                 CommandParser.maxiSecond = CommandParser.maxi
                 CommandParser.maxUser = user

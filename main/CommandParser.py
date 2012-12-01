@@ -9,7 +9,7 @@ import CmdHand
 import CmdCondottiere
 import CmdCurrentzone
 import re
-import CmdBattleStart, CmdBattleEnd, CmdMove, CmdBishop, CmdRetrieve, CmdPlayer
+import CmdBattleStart, CmdBattleEnd, CmdMove, CmdBishop, CmdRetrieve, CmdPlayer, CmdScore
 
 
 cards = []
@@ -82,32 +82,32 @@ def parseCommand(args):
     while(len(args) > 0):
         cmd = extractCommand(args)
         if 'GameStart' == cmd:
-            print 'GameStart'
+            print '---GameStart'
             args = args[1:]
             continue
             
         if 'GameEnd' == cmd:
-            print 'GameEnd'
+            print '---GameEnd'
             args = args[1:]
             continue
         
         if 'RoundStart' == cmd:
-            print 'RoundStart'
+            print '---RoundStart'
             args = args[1:]
             continue
             
         if 'BattleStart' == cmd:
-            print 'BattleStart'
+            print '---BattleStart'
             args = CmdBattleStart.handle(args);
             continue
 
         if 'BattleEnd' == cmd:
-            print 'BattleEnd' 
+            print '---BattleEnd' 
             args = CmdBattleEnd.handle(args);  
             continue
         
         if 'RoundEnd' == cmd:
-            print 'RoundEnd'
+            print '---RoundEnd'
             args = args[1:]
             continue
         
@@ -116,12 +116,11 @@ def parseCommand(args):
             continue
         
         if 'Order' == cmd:
-            print 'Order'
+            print '---Order'
             args = args[1:]
             continue
         
         if 'Hand' == cmd:
-            print 'Hand'
             args = CmdHand.handle(args);
             continue
         
@@ -130,7 +129,6 @@ def parseCommand(args):
             continue
         
         if 'CurrentZone' == cmd:
-            print 'CurrentZone'
             args = CmdCurrentzone.handle(args);
             continue
             
@@ -150,32 +148,28 @@ def parseCommand(args):
             args = CmdRetrieve.handle(args)
             continue
         
-        #if 'Player' == cmd:
-        #    print 'Player'
-        
         if 'Pass' == cmd:
-            print 'Pass'    
+            print '---Pass'    
             args = args[1:]
             continue
         
         if 'Play' == cmd:
-            print 'Play'
+            print '---Play'
             args = args[1:]
             continue
         
         if 'Protect' == cmd:
-            print 'Protect'
+            print '---Protect'
             args = args[1:]
             continue
         
         if 'Retrieve' == cmd:
-            print 'Retrieve'
+            print '---Retrieve'
             args = args[1:]
             continue
         
         if 'Score' == cmd:
-            print 'Score'
-            args = args[1:]
+            args = CmdScore.handle(args)
             continue
             
         if (len(args) > 0):

@@ -12,6 +12,7 @@ import CmdCurrentzone
 import re
 import CmdBattleStart, CmdBattleEnd, CmdMove, CmdBishop, CmdRetrieve, CmdPlayer, CmdScore, CmdRoundStart
 import math
+from copy import copy, deepcopy
 
 
 cards = []
@@ -65,8 +66,10 @@ for i in range(0, len(regions)):
         if m[i][j] == 1:
             regionNeighbours[i] += 1
             regionNeighbours[j] += 1
-            
-regionNeighbours.sort()
+
+
+sortedNeighbours = deepcopy(regionNeighbours)
+sortedNeighbours.sort()
         
 
 

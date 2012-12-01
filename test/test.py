@@ -40,8 +40,15 @@ class Test(unittest.TestCase):
         
     def testBattleEnd(self):
         CommandParser.occupiedRegion[CommandParser.ix('Siena')] = 0
+        CommandParser.ourPlayer = 'red'
         CommandParser.parseCommand(['CurrentZone Siena','BattleEnd red'])
+        
         assert(CommandParser.occupiedRegion[CommandParser.ix('Siena')] == 1)
+        
+    def testInitAi(self):
+        CommandParser
+        assert(len(CommandParser.regionNeighbours) == 17)
+        CommandParser.parseCommand(['?Condottiere'])
 
 
 if __name__ == "__main__":

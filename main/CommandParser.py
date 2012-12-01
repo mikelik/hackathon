@@ -21,7 +21,7 @@ regionsMap = {'Torino': 0, 'Milano': 1, 'Venezia': 2, 'Genova': 3, 'Mantova': 4,
 occupiedRegion = [0]*len(regions)
 
 ourRegion  = [0]*len(regions)
-regionNeighbours = [0]*len(regions)
+regionNeighbours = [0 for x in range(len(regions))]
 
 currentZone = None
 currentPlayer = None

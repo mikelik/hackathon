@@ -10,5 +10,6 @@ import Logger
 def handle(args):
     Logger.log("Command %s::" % args[0])
     CommandParser.weAreLosing = False
+    CommandParser.isWinter = False
     CommandParser.mercenaryCards = {}
     return args[1:]

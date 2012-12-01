@@ -49,6 +49,11 @@ def handle(args):
             if len(digits) > 0 :
                 resp = digits[len(digits)-1]
                 digits.remove(resp)
+            for x in range(len(CommandParser.cards)-1) :
+                if CommandParser.cards[x] == 'Heroine':
+                    resp = 'Heroine'
+                if CommandParser.cards[x] == 'Drummer':
+                    resp = 'Drummer'
             CommandParser.cards.remove(resp)
     elif CommandParser.maxTheirsCard > CommandParser.maxOurCard and CommandParser.maxTheirsCard > 5 and 'Bishop' in CommandParser.cards:
         resp = 'Bishop'
@@ -65,6 +70,11 @@ def handle(args):
         if len(digits) > 0 :
             resp = digits[len(digits)-1]
             digits.remove(resp)
+#        for x in range(len(CommandParser.cards)-1) :
+#                if CommandParser.cards[x] == 'Heroine':
+#                    resp = 'Heroine'
+#                if CommandParser.cards[x] == 'Drummer':
+#                    resp = 'Drummer'
         CommandParser.cards.remove(resp)
     TCPCommunicator.sendMessage(resp)
     return args[1:]

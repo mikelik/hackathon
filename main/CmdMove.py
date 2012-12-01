@@ -38,6 +38,9 @@ def handle(args):
     elif CommandParser.weAreLosing:
         resp = 'pass'
         # if 'Scarecrow' in CommandParser:
+        if 'Courtesan' in CommandParser.cards:
+            resp='Courtesan'
+            CommandParser.cards.remove(resp)
         Logger.log("weAreLosing - tryin to get back my cards")
         #resp = 'Scarecrow'
     elif 'Key' in CommandParser.cards:

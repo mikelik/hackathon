@@ -22,7 +22,6 @@ scoreMap = {}
 
 regionsMap = {'Torino': 0, 'Milano': 1, 'Venezia': 2, 'Genova': 3, 'Mantova': 4, 'Parma': 5, 'Modena': 6, 'Ferrara': 7, 'Bologna': 8,'Lucca':9,'Firenze':10,'Siena':11,'Spoleto':12,'Urbino':13,'Ancona':14,'Roma':15,'Napoli':16 }
 occupiedRegion = [0]*len(regions)
-protectedRegion = [0]*len(regions)
 
 ourRegion  = [0]*len(regions)
 regionNeighbours = [0 for x in range(len(regions))]
@@ -30,6 +29,7 @@ regionNeighbours = [0 for x in range(len(regions))]
 currentZone = None
 currentPlayer = None
 ourPlayer = None
+protectedZone = None
 
 def ix(region):
     return regionsMap[region]
@@ -183,6 +183,16 @@ def parseCommand(args):
             Logger.log("Unhandled data :%s:" % args[0])
             Logger.log(" for command :%s:\n" % cmd)
             args = args[1:] 
+
+
+def isProtectedZone(neIdx):
+    if protectedZone is None:
+        return False
+    
+    if neIdx == ix(protectedZone):
+        return True
+    else:
+        return False
 
 
 

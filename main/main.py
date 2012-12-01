@@ -27,11 +27,5 @@ if __name__ == '__main__':
     #while True:
     #    if x[0] == '?':
     #        TCPCommunicator.sendMessage('Milano')
-                      
-    
-        
 
-    print TCPCommunicator.getMessageWait()
-    print TCPCommunicator.getMessageWait()
-    print TCPCommunicator.getMessageWait()
     TCPCommunicator.disconnect()

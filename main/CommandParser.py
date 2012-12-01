@@ -10,6 +10,7 @@ import CmdCondottiere
 import CmdCurrentzone
 import re
 import CmdBattleStart, CmdBattleEnd, CmdMove, CmdBishop, CmdRetrieve
+import math
 
 
 cards = []
@@ -20,18 +21,14 @@ regionsMap = {'Torino': 0, 'Milano': 1, 'Venezia': 2, 'Genova': 3, 'Mantova': 4,
 occupiedRegion = [0]*len(regions)
 
 ourRegion  = [0]*len(regions)
+regionNeighbours = [0]*len(regions)
+
 currentZone = None
 
 def ix(region):
     return regionsMap[region]
 
-m = []
-# vertex numbering starts from 0
-for i in range(0, len(regions)):
-    temp = []
-    for j in range(0, len(regions)):
-        temp.append(0)
-        m.append(temp)
+m = [[0 for x in range(len(regions))] for x in range(len(regions))] 
     
 m[ix('Torino')][ix('Milano')]=m[ix('Milano')][ix('Torino')]=1
 m[ix('Torino')][ix('Genova')]=m[ix('Genova')][ix('Torino')]=1
@@ -58,6 +55,15 @@ m[ix('Spoleto')][ix('Urbino')]=m[ix('Urbino')][ix('Spoleto')]=1
 m[ix('Spoleto')][ix('Ancona')]=m[ix('Ancona')][ix('Spoleto')]=1
 m[ix('Spoleto')][ix('Napoli')]=m[ix('Napoli')][ix('Spoleto')]=1
 m[ix('Roma')][ix('Napoli')]=m[ix('Napoli')][ix('Roma')]=1
+
+for i in range(0, len(regions)):
+    for j in range(i+1, len(regions)):
+        if m[i][j] == 1:
+            regionNeighbours[i] += 1
+            regionNeighbours[j] += 1
+            
+regionNeighbours.sort()
+        
 
 
 command = re.compile('^\s*([?\w]+)')

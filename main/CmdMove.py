@@ -39,8 +39,17 @@ def handle(args):
             resp = CommandParser.cards[indexKey]
             CommandParser.cards.remove(resp)
         else:
+            sortedcards = deepcopy(CommandParser.cards)
+            digits = []
+            for x in range(len(sortedcards)-1) :
+                if sortedcards[x].isdigit() :
+                    digits.append(sortedcards[x])
+            digits.sort(key=int)
             ran = random.randint(0,len(CommandParser.cards)-1)
             resp = CommandParser.cards[ran]
+            if len(digits) > 0 :
+                resp = digits[len(digits)-1]
+                digits.remove(resp)
             CommandParser.cards.remove(resp)
     else:
         sortedcards = deepcopy(CommandParser.cards)

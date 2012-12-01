@@ -9,7 +9,7 @@ import CmdHand
 import CmdCondottiere
 import CmdCurrentzone
 import re
-import CmdBattleStart, CmdBattleEnd, CmdMove, CmdBishop, CmdRetrieve
+import CmdBattleStart, CmdBattleEnd, CmdMove, CmdBishop, CmdRetrieve, CmdPlayer
 import math
 
 
@@ -24,6 +24,8 @@ ourRegion  = [0]*len(regions)
 regionNeighbours = [0]*len(regions)
 
 currentZone = None
+currentPlayer = None
+ourPlayer = None
 
 def ix(region):
     return regionsMap[region]
@@ -129,8 +131,7 @@ def parseCommand(args):
             continue
         
         if 'Player' == cmd:
-            print 'Player'
-            args = args[1:]
+            args = CmdPlayer.handle(args)
             continue
         
         if 'CurrentZone' == cmd:

@@ -43,6 +43,17 @@ def handle(args):
         
 
 
+    CommandParser.maxi = 0
+    CommandParser.maxUser = ''
+    CommandParser.maxiSecond = 0
+            
+    for user in CommandParser.scoreMap.keys():
+        #print 'Max calculation for user=' + user
+        if (int(CommandParser.maxi) <= int(CommandParser.scoreMap[user])):
+            CommandParser.maxiSecond = CommandParser.maxi
+            CommandParser.maxUser = user
+            CommandParser.maxi = CommandParser.scoreMap[user]
+
     resp = None
     if len(CommandParser.cards) <= 0:
         resp = 'pass'
@@ -53,23 +64,10 @@ def handle(args):
             resp='Courtesan'
         Logger.log("weAreLosing - tryin to get back my cards")
         #resp = 'Scarecrow'
-    elif 'Key' in CommandParser.cards:
-        CommandParser.maxi = 0
-        CommandParser.maxUser = ''
-        CommandParser.maxiSecond = 0
-                
-        for user in CommandParser.scoreMap.keys():
-            #print 'Max calculation for user=' + user
-            if (int(CommandParser.maxi) <= int(CommandParser.scoreMap[user])):
-                CommandParser.maxiSecond = CommandParser.maxi
-                CommandParser.maxUser = user
-                CommandParser.maxi = CommandParser.scoreMap[user]
-                
-        #Logger.log('Stats: maxi=' + str(CommandParser.maxi) + ' maxiSecond=' + str(CommandParser.maxiSecond) + ' maxUser=' + CommandParser.maxUser)
-        if CommandParser.maxUser == CommandParser.ourPlayer and int(CommandParser.maxiSecond) < int(CommandParser.maxi):
-            Logger.log('throw key, maxi=' + str(CommandParser.maxi) + ' maxiSecond=' + str(CommandParser.maxiSecond) + ' maxUser=' + CommandParser.maxUser)
-            indexKey =  CommandParser.cards.index('Key')
-            resp = CommandParser.cards[indexKey]
+    elif 'Key' in CommandParser.cards and CommandParser.maxUser == CommandParser.ourPlayer and int(CommandParser.maxiSecond) < int(CommandParser.maxi):
+        Logger.log('throw key, maxi=' + str(CommandParser.maxi) + ' maxiSecond=' + str(CommandParser.maxiSecond) + ' maxUser=' + CommandParser.maxUser)
+        indexKey =  CommandParser.cards.index('Key')
+        resp = CommandParser.cards[indexKey]
     elif CommandParser.isWinter and 'Spring' in CommandParser.cards:
         resp = 'Spring'
     elif CommandParser.maxTheirsCard > CommandParser.maxOurCard and CommandParser.maxTheirsCard > 5 and 'Bishop' in CommandParser.cards:
@@ -81,8 +79,9 @@ def handle(args):
             if sortedcards[x].isdigit() :
                 digits.append(sortedcards[x])
         digits.sort(key=int)
-        ran = random.randint(0,len(CommandParser.cards)-1)
-        resp = CommandParser.cards[ran]
+        #ran = random.randint(0,len(CommandParser.cards)-1)
+        #resp = CommandParser.cards[ran]
+        resp = 'pass'
         if len(digits) > 0 :
             resp = digits[len(digits)-1]
             digits.remove(resp)
@@ -111,6 +110,8 @@ def handle(args):
 #                if CommandParser.cards[x] == 'Drummer':
 #                    resp = 'Drummer'
 #        CommandParser.cards.remove(resp)
-    CommandParser.cards.remove(resp)
+    print "Move of %s" % resp
+    if resp != 'pass':
+        CommandParser.cards.remove(resp)
     TCPCommunicator.sendMessage(resp)
     return args[1:]

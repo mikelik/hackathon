@@ -12,7 +12,8 @@ def handle(args):
         item = args[index]
         if (item == '}'):
             print CommandParser.scoreMap
-            print "Our score = %s" % CommandParser.scoreMap[CommandParser.ourPlayer]
+            if CommandParser.ourPlayer:
+                print "Our score = %s" % CommandParser.scoreMap[CommandParser.ourPlayer]
             return args[index+1:]
         CommandParser.scoreMap[item.split('=')[0]] = item.split('=')[1]
         print "Command Score appended :%s:\n" % item

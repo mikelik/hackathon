@@ -54,6 +54,8 @@ def handle(args):
                     resp = 'Heroine'
                 if CommandParser.cards[x] == 'Drummer':
                     resp = 'Drummer'
+                if CommandParser.cards[x] == 'Winter':
+                    resp = 'Winter'
             CommandParser.cards.remove(resp)
     elif CommandParser.maxTheirsCard > CommandParser.maxOurCard and CommandParser.maxTheirsCard > 5 and 'Bishop' in CommandParser.cards:
         resp = 'Bishop'

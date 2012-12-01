@@ -9,5 +9,5 @@ import Logger
 
 def handle(args):
     Logger.log("Command %s::" % args[0])
-
+    CommandParser.cards = []
     return args[1:]

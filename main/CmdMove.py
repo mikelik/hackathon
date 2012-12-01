@@ -60,13 +60,13 @@ def handle(args):
         CommandParser.maxiSecond = 0
                 
         for user in CommandParser.scoreMap.keys():
-            print 'Max calculation for user=' + user
-            if (CommandParser.maxi <= CommandParser.scoreMap[user]):
+            #print 'Max calculation for user=' + user
+            if (int(CommandParser.maxi) <= int(CommandParser.scoreMap[user])):
                 CommandParser.maxiSecond = CommandParser.maxi
                 CommandParser.maxUser = user
                 CommandParser.maxi = CommandParser.scoreMap[user]
                 
-        Logger.log('Stats: maxi=' + str(CommandParser.maxi) + ' maxiSecond=' + str(CommandParser.maxiSecond) + ' maxUser=' + CommandParser.maxUser)
+        #Logger.log('Stats: maxi=' + str(CommandParser.maxi) + ' maxiSecond=' + str(CommandParser.maxiSecond) + ' maxUser=' + CommandParser.maxUser)
         if CommandParser.maxUser == CommandParser.ourPlayer and int(CommandParser.maxiSecond) < int(CommandParser.maxi):
             Logger.log('throw key, maxi=' + str(CommandParser.maxi) + ' maxiSecond=' + str(CommandParser.maxiSecond) + ' maxUser=' + CommandParser.maxUser)
             indexKey =  CommandParser.cards.index('Key')

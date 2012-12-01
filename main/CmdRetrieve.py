@@ -6,9 +6,10 @@ Created on 30-11-2012
 from main import TCPCommunicator
 import CommandParser
 import random
+import Logger
 
 def handle(args):
     resp = 'pass'
-    print "Retrieve :%s:" % resp
+    Logger.log("Retrieve :%s:" % resp)
     TCPCommunicator.sendMessage(resp)
     return args[1:]

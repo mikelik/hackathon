@@ -5,7 +5,8 @@ Created on 30 Nov 2012
 '''
 
 import CommandParser
+import Logger
 
 def handle(args):
-    print "Command BattlStart: %s::" % args[0]
+    Logger.log("Command BattlStart: %s::" % args[0])
     return args[1:]

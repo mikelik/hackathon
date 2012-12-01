@@ -11,12 +11,7 @@ import random
 def handle(args):
     
     
-#    for i in reversed(range(len(CommandParser.regions))):
-#        CommandParser.regionNeighbours.index()
-#        for i in range(len(CommandParser.regions)):
-#            if CommandParser.ourRegion[i] == 1:
-#                currentRegion = i
-  
+#-------------- AI 
     currentRegion = -1
   
     for i in range(len(CommandParser.regions)):
@@ -26,13 +21,21 @@ def handle(args):
                     if CommandParser.m[i][neIdx] == 0:
                         currentRegion = i
                         print 'Found neighbour region, attacking: '
-                        print CommandParser.m[CommandParser.ix(i)]
+                        print CommandParser.regions[i]
+                        
+#-------------- AI END
     
     resp = None
     if currentRegion >= 0:
         resp = CommandParser.regions[currentRegion]              
     else:
-        resp = CommandParser.regions[random.randint(0,len(CommandParser.regions)-1)]
+#        for i in reversed(range(len(CommandParser.regions))):
+#            CommandParser.regionNeighbours.index()
+#            for i in range(len(CommandParser.regions)):
+#                if CommandParser.ourRegion[i] == 1:
+#                    currentRegion = i
+        index = random.randint(0,len(CommandParser.regions)-1)
+        resp = CommandParser.regions[index]
     while CommandParser.occupiedRegion[CommandParser.ix(resp)] == 1:
         resp = CommandParser.regions[random.randint(0,len(CommandParser.regions)-1)]
     print "Condottiere :%s:" % resp

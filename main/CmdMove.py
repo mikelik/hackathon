@@ -10,6 +10,17 @@ import random
 import Logger
 from copy import copy, deepcopy
 
+def checkMercenaryCards():
+    Logger.log("checkMercenaryCards \n")
+    ourMercenaryCards = 0
+    if CommandParser.ourPlayer in CommandParser.mercenaryCards.keys() :
+        ourMercenaryCards = CommandParser.mercenaryCards[CommandParser.ourPlayer]
+    Logger.log("our: %d" % ourMercenaryCards)
+    for x in CommandParser.mercenaryCards.keys() :
+        Logger.log("other: %s and value %d" % (x,CommandParser.mercenaryCards[x]))
+        if CommandParser.mercenaryCards[x] < ourMercenaryCards :
+            return True
+    return False
 
 def handle(args):
     CommandParser.ourPlayer = CommandParser.currentPlayer
@@ -55,7 +66,7 @@ def handle(args):
                     resp = 'Heroine'
                 if CommandParser.cards[x] == 'Drummer':
                     resp = 'Drummer'
-                if CommandParser.cards[x] == 'Winter':
+                if CommandParser.cards[x] == 'Winter' and checkMercenaryCards():
                     resp = 'Winter'
             CommandParser.cards.remove(resp)
     elif CommandParser.maxTheirsCard > CommandParser.maxOurCard and CommandParser.maxTheirsCard > 5 and 'Bishop' in CommandParser.cards:

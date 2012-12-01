@@ -16,6 +16,7 @@ from copy import copy, deepcopy
 
 
 cards = []
+originalCards = []
 regions = ['Torino','Milano','Venezia','Genova','Mantova','Parma','Modena','Ferrara','Bologna','Lucca','Firenze','Siena','Spoleto','Urbino','Ancona','Roma','Napoli']
 players = []
 scoreMap = {}
@@ -30,6 +31,7 @@ currentZone = None
 currentPlayer = None
 ourPlayer = None
 protectedZone = None
+weAreLosing = False
 
 def ix(region):
     return regionsMap[region]

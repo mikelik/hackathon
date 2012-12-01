@@ -8,7 +8,11 @@ import CommandParser
 import random
 import Logger
 
+
 def handle(args):
+    #if CommandParser.weAreLosing: TODO: 
+    #    resp = int(getMaxMercenaryCard())
+    #else:
     resp = 'pass'
     Logger.log("Retrieve :%s:" % resp)
     TCPCommunicator.sendMessage(resp)

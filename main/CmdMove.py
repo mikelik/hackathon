@@ -18,10 +18,25 @@ def handle(args):
         Logger.log("Our score = %s" % CommandParser.scoreMap[CommandParser.ourPlayer])
     Logger.log('Move: ')
     Logger.log(CommandParser.cards)
-    Logger.log('Potential points in hand: ' + str(CommandParser.potentialPointsInHand()))
+    ptsHands = CommandParser.potentialPointsInHand() 
+    Logger.log('Potential points in hand: ' + str(ptsHands))
+    maxPossiblePts = ptsHands + int(CommandParser.scoreMap[CommandParser.ourPlayer])
+    Logger.log('Potentially maximum points to gain in round: ' + str(maxPossiblePts))
+    key,value = max(CommandParser.scoreMap.iteritems(), key=lambda x:x[1]) # max key and max value for top player
+    if key != CommandParser.ourPlayer and int(value) > int(maxPossiblePts):
+        CommandParser.weAreLosing = True
+        Logger.log("weAreLosing = True - raczej nie wygramy tej rundy, top value in round: " + str(value))
+        
+
+
     resp = None
     if len(CommandParser.cards) <= 0:
         resp = 'pass'
+    elif CommandParser.weAreLosing:
+        resp = 'pass'
+        # if 'Scarecrow' in CommandParser:
+        Logger.log("weAreLosing - tryin to get back my cards")
+        #resp = 'Scarecrow'
     elif 'Key' in CommandParser.cards:
         CommandParser.maxi = 0
         CommandParser.maxUser = ''

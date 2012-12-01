@@ -79,9 +79,12 @@ def handle(args):
             if sortedcards[x].isdigit() :
                 digits.append(sortedcards[x])
         digits.sort(key=int)
-        #ran = random.randint(0,len(CommandParser.cards)-1)
-        #resp = CommandParser.cards[ran]
-        resp = 'pass'
+        
+        ran = random.randint(0,len(CommandParser.cards))
+        temp_cards = deepcopy(CommandParser.cards)
+        temp_cards.append('pass')
+        resp = temp_cards[ran]
+
         if len(digits) > 0 :
             resp = digits[len(digits)-1]
             digits.remove(resp)

@@ -3,7 +3,8 @@ Created on 30 Nov 2012
 
 @author: Czeslaw
 '''
+import Logger
 
 def handle(args):
-    print "Command Order: %s::" % args
+    Logger.log("Command %s::" % args[0])
     return args[1:]

@@ -5,7 +5,7 @@ Created on 30-11-2012
 '''
 import TCPCommunicator
 import CommandParser
-
+import Logger
        
 
 if __name__ == '__main__':
@@ -17,11 +17,14 @@ if __name__ == '__main__':
     ip = configParsed[0].split(':')[1]
     password = configParsed[1]
     
+    Logger.log('version with logger: 01')
+    Logger.log('password: %s' % password)
+
     TCPCommunicator.connect(server, int(ip))
     TCPCommunicator.sendMessage('AUTH ' + password)
     while True:
         args_string = TCPCommunicator.getMessageWait()
-        print "RAW:\n%s:==========\n" % args_string
+        Logger.log("RAW:\n%s:==========\n" % args_string)
         args_list = args_string.splitlines()
         CommandParser.parseCommand(args_list)
     #while True:

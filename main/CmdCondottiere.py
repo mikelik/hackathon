@@ -6,7 +6,7 @@ Created on 30-11-2012
 from main import TCPCommunicator
 import CommandParser
 import random
-
+import Logger
 
 def handle(args):
     
@@ -22,8 +22,8 @@ def handle(args):
                 for neIdx in range(len(CommandParser.m[i])):
                     if CommandParser.m[i][neIdx] == 1 and CommandParser.occupiedRegion[neIdx] == 0:
                         currentRegion = neIdx
-                        print 'Found neighbour region, attacking: '
-                        print CommandParser.regions[neIdx]
+                        Logger.log('Found neighbour region, attacking: ')
+                        Logger.log(CommandParser.regions[i])
                         if random.randint(0,10) > 3:
                             breakLoop = True
                         break;
@@ -45,6 +45,6 @@ def handle(args):
         resp = CommandParser.regions[index]
     while CommandParser.occupiedRegion[CommandParser.ix(resp)] == 1:
         resp = CommandParser.regions[random.randint(0,len(CommandParser.regions)-1)]
-    print "Condottiere :%s:" % resp
+    Logger.log( "Condottiere :%s:" % resp)
     TCPCommunicator.sendMessage(resp)
     return args[1:]

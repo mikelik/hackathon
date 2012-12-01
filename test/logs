@@ -1,0 +1,165 @@
+Command CurrentZone Siena::
+Command BattleEnd red::
+Unhandled data :blue:
+ for command :blue:
+
+Unhandled data :clients=red:
+ for command :clients:
+
+Command RoundStart 1::
+Command Hand appended :['Courtesan', 'Key', '5', '4', '2', 'Drummer', 'Bishop', '5', '3', '4']:
+
+Command Hand appended :BattleStart:
+
+Command Hand appended :1:
+
+Command Hand appended :Order:
+
+Command Hand appended :['blue', 'red']:
+
+Found neighbour region, attacking: Firenze
+Condottiere :Firenze:
+sending message: Firenze
+Command RoundStart 1::
+Command Hand appended :Drummer:
+
+Command Hand appended :Drummer:
+
+Command Hand appended :Courtesan:
+
+Command Hand appended :Heroine:
+
+Command Hand appended :Spring:
+
+Command Hand appended :4:
+
+Command Hand appended :2:
+
+Command Hand appended :Heroine:
+
+Command Hand appended :Courtesan:
+
+Command Hand appended :Courtesan:
+
+---BattleStart
+Command BattleStart 1::
+---Order
+Unhandled data :clients=red:
+ for command :clients:
+
+Unhandled data :]:
+ for command ::
+
+Found neighbour region, attacking: Firenze
+Condottiere :Firenze:
+sending message: Firenze
+Command CurrentZone Siena::
+Command BattleEnd red::
+Unhandled data :blue:
+ for command :blue:
+
+Unhandled data :clients=red:
+ for command :clients:
+
+Command RoundStart 1::
+Command Hand appended :['Courtesan', 'Key', '5', '4', '2', 'Drummer', 'Bishop', '5', '3', '4']:
+
+Command Hand appended :BattleStart:
+
+Command Hand appended :1:
+
+Command Hand appended :Order:
+
+Command Hand appended :['blue', 'red']:
+
+Found neighbour region, attacking: Firenze
+Condottiere :Firenze:
+sending message: Firenze
+Command RoundStart 1::
+Command Hand appended :Drummer:
+
+Command Hand appended :Drummer:
+
+Command Hand appended :Courtesan:
+
+Command Hand appended :Heroine:
+
+Command Hand appended :Spring:
+
+Command Hand appended :4:
+
+Command Hand appended :2:
+
+Command Hand appended :Heroine:
+
+Command Hand appended :Courtesan:
+
+Command Hand appended :Courtesan:
+
+---BattleStart
+Command BattleStart 1::
+---Order
+Unhandled data :clients=red:
+ for command :clients:
+
+Unhandled data :]:
+ for command ::
+
+Found neighbour region, attacking: Firenze
+Condottiere :Firenze:
+sending message: Firenze
+Command CurrentZone Siena::
+Command BattleEnd red::
+Unhandled data :blue:
+ for command :blue:
+
+Unhandled data :clients=red:
+ for command :clients:
+
+Command RoundStart 1::
+Command Hand appended :['Courtesan', 'Key', '5', '4', '2', 'Drummer', 'Bishop', '5', '3', '4']:
+
+Command Hand appended :BattleStart:
+
+Command Hand appended :1:
+
+Command Hand appended :Order:
+
+Command Hand appended :['blue', 'red']:
+
+Found neighbour region, attacking: Firenze
+Condottiere :Firenze:
+sending message: Firenze
+Command RoundStart 1::
+Command Hand appended :Drummer:
+
+Command Hand appended :Drummer:
+
+Command Hand appended :Courtesan:
+
+Command Hand appended :Heroine:
+
+Command Hand appended :Spring:
+
+Command Hand appended :4:
+
+Command Hand appended :2:
+
+Command Hand appended :Heroine:
+
+Command Hand appended :Courtesan:
+
+Command Hand appended :Courtesan:
+
+---BattleStart
+Command BattleStart 1::
+---Order
+Unhandled data :clients=red:
+ for command :clients:
+
+Unhandled data :]:
+ for command ::
+
+Found neighbour region, attacking: Firenze
+Condottiere :Firenze:
+sending message: Firenze

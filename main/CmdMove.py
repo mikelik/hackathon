@@ -22,15 +22,13 @@ def handle(args):
     Logger.log('Potential points in hand: ' + str(ptsHands))
     maxPossiblePts = ptsHands + int(CommandParser.scoreMap[CommandParser.ourPlayer])
     Logger.log('Potentially maximum points to gain in round: ' + str(maxPossiblePts))
-    valueMax = max(CommandParser.scoreMap, key=CommandParser.scoreMap.get)
-    keyMax = None
-    for key, value in CommandParser.scoreMap.items():
-        if value == valueMax:
-            keyMax = key
+    keyMax = max(CommandParser.scoreMap, key=CommandParser.scoreMap.get)
+        
+    valueMax = CommandParser.scoreMap[keyMax]
     
-    if keyMax != CommandParser.ourPlayer and int(value) > int(maxPossiblePts):
+    if keyMax != CommandParser.ourPlayer and int(valueMax) > int(maxPossiblePts):
         CommandParser.weAreLosing = True
-        Logger.log("weAreLosing = True - raczej nie wygramy tej rundy, top value in round: " + str(CommandParser.scoreMap[key]))
+        Logger.log("weAreLosing = True - raczej nie wygramy tej rundy, top value in round: " + str(valueMax))
         
 
 

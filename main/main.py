@@ -17,7 +17,7 @@ if __name__ == '__main__':
     ip = configParsed[0].split(':')[1]
     password = configParsed[1]
     
-    Logger.log('version with logger: 7')
+    Logger.log('version with logger: 8')
     Logger.log('password: %s' % password)
 
     TCPCommunicator.connect(server, int(ip))

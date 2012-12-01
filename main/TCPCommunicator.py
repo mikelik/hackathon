@@ -20,6 +20,7 @@ def disconnect():
     sock.close()
 
 def sendMessage(message):
+        message = str(message)
         Logger.log("sending message: %s" % message)
         sock.sendall(message + '\r\n')
 

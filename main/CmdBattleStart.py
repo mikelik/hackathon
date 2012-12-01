@@ -7,5 +7,5 @@ Created on 30 Nov 2012
 import CommandParser
 
 def handle(args):
-    print "Command BattlStart: %s::" % args[0]
+    #print "Command %s::" % args[0]
     return args[1:]

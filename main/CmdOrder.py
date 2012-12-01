@@ -5,5 +5,5 @@ Created on 30 Nov 2012
 '''
 
 def handle(args):
-    print "Command Order: %s::" % args
+    print "Command %s::" % args[0]
     return args[1:]

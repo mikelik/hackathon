@@ -9,7 +9,7 @@ import CmdHand
 import CmdCondottiere
 import CmdCurrentzone
 import re
-import CmdBattleStart, CmdBattleEnd, CmdMove, CmdBishop, CmdRetrieve, CmdPlayer, CmdScore
+import CmdBattleStart, CmdBattleEnd, CmdMove, CmdBishop, CmdRetrieve, CmdPlayer, CmdScore, CmdRoundStart
 import math
 
 
@@ -98,8 +98,7 @@ def parseCommand(args):
             continue
         
         if 'RoundStart' == cmd:
-            print '---RoundStart'
-            args = args[1:]
+            args = CmdRoundStart.handle(args);
             continue
             
         if 'BattleStart' == cmd:

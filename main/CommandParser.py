@@ -10,12 +10,13 @@ import CmdHand
 import CmdCondottiere
 import CmdCurrentzone
 import re
-import CmdBattleStart, CmdBattleEnd, CmdMove, CmdBishop, CmdRetrieve, CmdPlayer, CmdScore, CmdRoundStart, CmdPlay, CmdProtect
+import CmdBattleStart, CmdBattleEnd, CmdMove, CmdBishop, CmdRetrieve, CmdPlayer, CmdScore, CmdRoundStart, CmdPlay, CmdProtect, CmdRoundEnd
 import math
 from copy import copy, deepcopy
 
 
 cards = []
+originalCards = []
 regions = ['Torino','Milano','Venezia','Genova','Mantova','Parma','Modena','Ferrara','Bologna','Lucca','Firenze','Siena','Spoleto','Urbino','Ancona','Roma','Napoli']
 players = []
 scoreMap = {}
@@ -31,6 +32,7 @@ currentZone = None
 currentPlayer = None
 ourPlayer = None
 protectedZone = None
+weAreLosing = False
 
 def ix(region):
     return regionsMap[region]
@@ -122,8 +124,7 @@ def parseCommand(args):
             continue
         
         if 'RoundEnd' == cmd:
-            Logger.log('---RoundEnd')
-            args = args[1:]
+            args = CmdRoundEnd.handle(args); 
             continue
         
         if 'Players' == cmd:

@@ -7,14 +7,15 @@ Created on 30-11-2012
 import CommandParser
 import TCPCommunicator
 import random
+import Logger
 
 def handle(args):
     CommandParser.ourPlayer = CommandParser.currentPlayer
-    print CommandParser.scoreMap
+    Logger.log( CommandParser.scoreMap)
     if CommandParser.ourPlayer:
         print "Our score = %s" % CommandParser.scoreMap[CommandParser.ourPlayer]
-    print 'Move: '
-    print CommandParser.cards
+    Logger.log('Move: ')
+    Logger.log(CommandParser.cards)
     resp = None
     if len(CommandParser.cards) <= 0:
         resp = 'pass'

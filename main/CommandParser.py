@@ -4,6 +4,7 @@ Created on 30-11-2012
 @author: Przemek
 '''
 
+import Logger
 import CmdPlayers
 import CmdHand
 import CmdCondottiere
@@ -88,22 +89,22 @@ def parseCommand(args):
     while(len(args) > 0):
         cmd = extractCommand(args)
         if 'GameStart' == cmd:
-            print '---GameStart'
+            Logger.log('---GameStart')
             args = args[1:]
             continue
             
         if 'GameEnd' == cmd:
-            print '---GameEnd'
+            Logger.log('---GameEnd')
             args = args[1:]
             continue
         
         if 'RoundStart' == cmd:
-            print '---RoundStart'
+            Logger.log('---RoundStart')
             args = args[1:]
             continue
             
         if 'BattleStart' == cmd:
-            print '---BattleStart'
+            Logger.log('---BattleStart')
             args = CmdBattleStart.handle(args);
             continue
 
@@ -112,7 +113,7 @@ def parseCommand(args):
             continue
         
         if 'RoundEnd' == cmd:
-            print '---RoundEnd'
+            Logger.log('---RoundEnd')
             args = args[1:]
             continue
         
@@ -121,7 +122,7 @@ def parseCommand(args):
             continue
         
         if 'Order' == cmd:
-            print '---Order'
+            Logger.log('---Order')
             args = args[1:]
             continue
         
@@ -154,22 +155,22 @@ def parseCommand(args):
             continue
         
         if 'Pass' == cmd:
-            print '---Pass'
+            Logger.log('---Pass')
             args = args[1:]
             continue
         
         if 'Play' == cmd:
-            print '---Play'
+            Logger.log('---Play')
             args = args[1:]
             continue
         
         if 'Protect' == cmd:
-            print '---Protect'
+            Logger.log('---Protect')
             args = args[1:]
             continue
         
         if 'Retrieve' == cmd:
-            print '---Retrieve'
+            Logger.log('---Retrieve')
             args = args[1:]
             continue
         
@@ -178,8 +179,8 @@ def parseCommand(args):
             continue
             
         if (len(args) > 0):
-            print "Unhandled data :%s:" % args[0]
-            print " for command :%s:\n" % cmd
+            Logger.log("Unhandled data :%s:" % args[0])
+            Logger.log(" for command :%s:\n" % cmd)
             args = args[1:] 
 
 

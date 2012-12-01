@@ -10,7 +10,7 @@ import CmdHand
 import CmdCondottiere
 import CmdCurrentzone
 import re
-import CmdBattleStart, CmdBattleEnd, CmdMove, CmdBishop, CmdRetrieve, CmdPlayer, CmdScore, CmdRoundStart
+import CmdBattleStart, CmdBattleEnd, CmdMove, CmdBishop, CmdRetrieve, CmdPlayer, CmdScore, CmdRoundStart, CmdPlay, CmdProtect
 import math
 from copy import copy, deepcopy
 
@@ -22,6 +22,7 @@ scoreMap = {}
 
 regionsMap = {'Torino': 0, 'Milano': 1, 'Venezia': 2, 'Genova': 3, 'Mantova': 4, 'Parma': 5, 'Modena': 6, 'Ferrara': 7, 'Bologna': 8,'Lucca':9,'Firenze':10,'Siena':11,'Spoleto':12,'Urbino':13,'Ancona':14,'Roma':15,'Napoli':16 }
 occupiedRegion = [0]*len(regions)
+protectedRegion = [0]*len(regions)
 
 ourRegion  = [0]*len(regions)
 regionNeighbours = [0 for x in range(len(regions))]
@@ -162,13 +163,11 @@ def parseCommand(args):
             continue
         
         if 'Play' == cmd:
-            Logger.log('---Play')
-            args = args[1:]
+            args = CmdPlay.handle(args)
             continue
         
         if 'Protect' == cmd:
-            Logger.log('---Protect')
-            args = args[1:]
+            args = CmdProtect.handle(args)
             continue
         
         if 'Retrieve' == cmd:

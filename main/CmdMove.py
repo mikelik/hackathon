@@ -13,7 +13,7 @@ def handle(args):
     CommandParser.ourPlayer = CommandParser.currentPlayer
     Logger.log( CommandParser.scoreMap)
     if CommandParser.ourPlayer:
-        print "Our score = %s" % CommandParser.scoreMap[CommandParser.ourPlayer]
+        Logger.log("Our score = %s" % CommandParser.scoreMap[CommandParser.ourPlayer])
     Logger.log('Move: ')
     Logger.log(CommandParser.cards)
     resp = None

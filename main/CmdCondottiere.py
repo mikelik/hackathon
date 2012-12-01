@@ -29,12 +29,14 @@ def handle(args):
     if currentRegion >= 0:
         resp = CommandParser.regions[currentRegion]              
     else:
-#        for i in reversed(range(len(CommandParser.regions))):
-#            CommandParser.regionNeighbours.index()
-#            for i in range(len(CommandParser.regions)):
-#                if CommandParser.ourRegion[i] == 1:
-#                    currentRegion = i
-        index = random.randint(0,len(CommandParser.regions)-1)
+        for s in reversed(range(len(CommandParser.regions))): # 17, 16, 15 ->sortedNeighbours
+            for n in range(len(CommandParser.regions)): # regionNeighbours
+                if CommandParser.regionNeighbours[n] == CommandParser.sortedNeighbours[s]:
+                    if CommandParser.ourRegion[n] == 0: # empty => fight for it
+                        currentRegion = n
+                    
+        index = currentRegion
+        #index = random.randint(0,len(CommandParser.regions)-1)
         resp = CommandParser.regions[index]
     while CommandParser.occupiedRegion[CommandParser.ix(resp)] == 1:
         resp = CommandParser.regions[random.randint(0,len(CommandParser.regions)-1)]

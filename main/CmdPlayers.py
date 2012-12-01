@@ -14,5 +14,6 @@ def handle(args):
             #print "Command Players returning: %s::\n" % args[index+1:]
             return args[index+1:]
         CommandParser.players.append(item)
+        CommandParser.scoreMap[item] = 0
         Logger.log( "Command Players appended :%s:\n" % item)
     return ''

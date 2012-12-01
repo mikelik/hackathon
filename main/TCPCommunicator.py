@@ -32,6 +32,7 @@ def getMessage():
     
 def getMessageWait():
     Logger.log('waiting\n')
+    read = None
     for x in range(50):
         try:
             read = sock.recv(1024)

@@ -189,6 +189,22 @@ def parseCommand(args):
             Logger.log(" for command :%s:\n" % cmd)
             args = args[1:] 
 
+def potentialPointsInHand():
+    bonusPoints = 0
+    mercenaryPoints = 0
+    drummerExist = False
+
+    sortedcards = deepcopy(cards)
+    for x in range(len(sortedcards)) :
+        if sortedcards[x].isdigit() :
+            mercenaryPoints += int(sortedcards[x])
+        elif cards[x] == 'Heroine':
+            bonusPoints += 10
+        elif cards[x] == 'Drummer':
+            drummerExist = True
+    if drummerExist:
+        mercenaryPoints *= 2
+    return bonusPoints + mercenaryPoints
 
 def isProtectedZone(neIdx):
     if protectedZone is None:

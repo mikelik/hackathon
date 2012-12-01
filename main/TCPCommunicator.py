@@ -31,6 +31,7 @@ def getMessage():
     
 def getMessageWait():
     print 'waiting\n'
+    read = None
     for x in range(50):
         try:
             read = sock.recv(1024)

@@ -38,7 +38,7 @@ def getMessageWait():
             read = sock.recv(1024)
         except:
             read = ''
-            Logger.log(sys.exc_info())
+            print sys.exc_info()
          
         if not read:
             Logger.log('no data received')

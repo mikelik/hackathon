@@ -8,7 +8,7 @@ import  CommandParser
 from string import lower
 
 def handle(args):
-    print "Command BattleEnd: %s::" % args
+    #print "Command BattleEnd: %s::" % args
     team = args[0].split()[1]
     if 'tie' not in team:
         CommandParser.occupiedRegion[CommandParser.ix(CommandParser.currentZone)] = 1

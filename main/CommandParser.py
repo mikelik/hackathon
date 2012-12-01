@@ -108,7 +108,6 @@ def parseCommand(args):
             continue
 
         if 'BattleEnd' == cmd:
-            print '---BattleEnd' 
             args = CmdBattleEnd.handle(args);  
             continue
         
@@ -147,7 +146,7 @@ def parseCommand(args):
             continue
             
         if '?Move' == cmd:
-            args = CmdMove.handle(args)        
+            args = CmdMove.handle(args)
             continue
         
         if '?Retrieve' == cmd:
@@ -155,7 +154,7 @@ def parseCommand(args):
             continue
         
         if 'Pass' == cmd:
-            print '---Pass'    
+            print '---Pass'
             args = args[1:]
             continue
         
@@ -181,7 +180,7 @@ def parseCommand(args):
         if (len(args) > 0):
             print "Unhandled data :%s:" % args[0]
             print " for command :%s:\n" % cmd
-            args = args[1:] ## todo nedds 
+            args = args[1:] 
 
 
 

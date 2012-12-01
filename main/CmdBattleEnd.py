@@ -7,8 +7,7 @@ Created on 30 Nov 2012
 import  CommandParser
 
 def handle(args):
-    print "Command BattleEnd: %s::" % args
-    #return args.split('\n')[-1]
+    #print "Command BattleEnd: %s::" % args
     if 'tie' not in args[0].split()[1]:
         CommandParser.occupiedRegion[CommandParser.ix(CommandParser.currentZone)] = 1
     return args[1:]

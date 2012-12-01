@@ -9,6 +9,10 @@ import TCPCommunicator
 import random
 
 def handle(args):
+    CommandParser.ourPlayer = CommandParser.currentPlayer
+    print CommandParser.scoreMap
+    if CommandParser.ourPlayer:
+        print "Our score = %s" % CommandParser.scoreMap[CommandParser.ourPlayer]
     print 'Move: '
     print CommandParser.cards
     resp = None
@@ -19,5 +23,4 @@ def handle(args):
         resp = CommandParser.cards[ran]
         CommandParser.cards.remove(resp)
     TCPCommunicator.sendMessage(resp)
-    CommandParser.ourPlayer = CommandParser.currentPlayer
     return args[1:]

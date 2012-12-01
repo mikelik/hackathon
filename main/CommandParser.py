@@ -10,7 +10,7 @@ import CmdHand
 import CmdCondottiere
 import CmdCurrentzone
 import re
-import CmdBattleStart, CmdBattleEnd, CmdMove, CmdBishop, CmdRetrieve, CmdPlayer, CmdScore, CmdRoundStart, CmdPlay, CmdProtect
+import CmdBattleStart, CmdBattleEnd, CmdMove, CmdBishop, CmdRetrieve, CmdPlayer, CmdScore, CmdRoundStart, CmdPlay, CmdProtect, CmdRoundEnd
 import math
 from copy import copy, deepcopy
 
@@ -123,8 +123,7 @@ def parseCommand(args):
             continue
         
         if 'RoundEnd' == cmd:
-            Logger.log('---RoundEnd')
-            args = args[1:]
+            args = CmdRoundEnd.handle(args); 
             continue
         
         if 'Players' == cmd:

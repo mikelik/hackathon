@@ -21,7 +21,7 @@ if __name__ == '__main__':
     TCPCommunicator.sendMessage('AUTH ' + password)
     while True:
         args_string = TCPCommunicator.getMessageWait()
-        print "RAW :%s:" % args_string
+        print "RAW:\n%s:==========\n" % args_string
         args_list = args_string.splitlines()
         CommandParser.parseCommand(args_list)
     #while True:

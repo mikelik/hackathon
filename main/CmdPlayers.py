@@ -11,7 +11,7 @@ def handle(args):
     for index in range(1, len(args)-1):
         item = args[index]
         if (item == ']'):
-            print "Command Players returning: %s::\n" % args[index+1:]
+            #print "Command Players returning: %s::\n" % args[index+1:]
             return args[index+1:]
         CommandParser.players.append(item)
         print "Command Players appended :%s:\n" % item

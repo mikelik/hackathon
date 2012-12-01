@@ -12,9 +12,9 @@ def handle(args):
     Logger.log("Player %s played %s" % (CommandParser.currentPlayer, args[0].split()[1]))
     if CommandParser.currentPlayer == CommandParser.ourPlayer and (args[0].split()[1]).isdigit():
         if CommandParser.maxOurCard < int(args[0].split()[1]):
-           CommandParser.maxOurCard = int(args[0].split()[1])
+            CommandParser.maxOurCard = int(args[0].split()[1])
     elif (args[0].split()[1]).isdigit():
         if CommandParser.maxTheirsCard < int(args[0].split()[1]):
-           CommandParser.maxTheirsCard = int(args[0].split()[1])
+            CommandParser.maxTheirsCard = int(args[0].split()[1])
 
     return args[1:]

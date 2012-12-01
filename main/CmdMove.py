@@ -60,6 +60,9 @@ def handle(args):
             indexKey =  CommandParser.cards.index('Key')
             resp = CommandParser.cards[indexKey]
             CommandParser.cards.remove(resp)
+        elif CommandParser.maxTheirsCard > CommandParser.maxOurCard and CommandParser.maxTheirsCard > 5 and 'Bishop' in CommandParser.cards:
+            resp = 'Bishop'
+            CommandParser.cards.remove(resp)
         else:
             sortedcards = deepcopy(CommandParser.cards)
             digits = []
@@ -80,9 +83,6 @@ def handle(args):
                 if CommandParser.cards[x] == 'Winter':
                     resp = 'Winter'
             CommandParser.cards.remove(resp)
-    elif CommandParser.maxTheirsCard > CommandParser.maxOurCard and CommandParser.maxTheirsCard > 5 and 'Bishop' in CommandParser.cards:
-        resp = 'Bishop'
-        CommandParser.cards.remove(resp)
     else:
         sortedcards = deepcopy(CommandParser.cards)
         digits = []

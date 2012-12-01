@@ -18,6 +18,7 @@ def handle(args):
         Logger.log("Our score = %s" % CommandParser.scoreMap[CommandParser.ourPlayer])
     Logger.log('Move: ')
     Logger.log(CommandParser.cards)
+    Logger.log('Potential points in hand: ' + str(CommandParser.potentialPointsInHand()))
     resp = None
     if len(CommandParser.cards) <= 0:
         resp = 'pass'
@@ -40,7 +41,7 @@ def handle(args):
         else:
             sortedcards = deepcopy(CommandParser.cards)
             digits = []
-            for x in range(len(sortedcards)-1) :
+            for x in range(len(sortedcards)) :
                 if sortedcards[x].isdigit() :
                     digits.append(sortedcards[x])
             digits.sort(key=int)
@@ -49,7 +50,7 @@ def handle(args):
             if len(digits) > 0 :
                 resp = digits[len(digits)-1]
                 digits.remove(resp)
-            for x in range(len(CommandParser.cards)-1) :
+            for x in range(len(CommandParser.cards)) :
                 if CommandParser.cards[x] == 'Heroine':
                     resp = 'Heroine'
                 if CommandParser.cards[x] == 'Drummer':
@@ -63,7 +64,7 @@ def handle(args):
     else:
         sortedcards = deepcopy(CommandParser.cards)
         digits = []
-        for x in range(len(sortedcards)-1) :
+        for x in range(len(sortedcards)) :
             if sortedcards[x].isdigit() :
                 digits.append(sortedcards[x])
         digits.sort(key=int)

@@ -8,6 +8,7 @@ import CommandParser
 import Logger
 
 def handle(args):
+    CommandParser.cards = []
     for index in range(1, len(args)-1):
         item = args[index]
         if (item == ']'):

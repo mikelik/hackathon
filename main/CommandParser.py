@@ -33,6 +33,7 @@ currentPlayer = None
 ourPlayer = None
 protectedZone = None
 weAreLosing = False
+isWinter = False
 
 def ix(region):
     return regionsMap[region]

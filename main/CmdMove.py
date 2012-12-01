@@ -51,7 +51,6 @@ def handle(args):
         # if 'Scarecrow' in CommandParser:
         if 'Courtesan' in CommandParser.cards:
             resp='Courtesan'
-            CommandParser.cards.remove(resp)
         Logger.log("weAreLosing - tryin to get back my cards")
         #resp = 'Scarecrow'
     elif 'Key' in CommandParser.cards:
@@ -71,30 +70,10 @@ def handle(args):
             Logger.log('throw key, maxi=' + str(CommandParser.maxi) + ' maxiSecond=' + str(CommandParser.maxiSecond) + ' maxUser=' + CommandParser.maxUser)
             indexKey =  CommandParser.cards.index('Key')
             resp = CommandParser.cards[indexKey]
-            CommandParser.cards.remove(resp)
-        elif CommandParser.maxTheirsCard > CommandParser.maxOurCard and CommandParser.maxTheirsCard > 5 and 'Bishop' in CommandParser.cards:
-            resp = 'Bishop'
-            CommandParser.cards.remove(resp)
-        else:
-            sortedcards = deepcopy(CommandParser.cards)
-            digits = []
-            for x in range(len(sortedcards)) :
-                if sortedcards[x].isdigit() :
-                    digits.append(sortedcards[x])
-            digits.sort(key=int)
-            ran = random.randint(0,len(CommandParser.cards)-1)
-            resp = CommandParser.cards[ran]
-            if len(digits) > 0 :
-                resp = digits[len(digits)-1]
-                digits.remove(resp)
-            for x in range(len(CommandParser.cards)) :
-                if CommandParser.cards[x] == 'Heroine':
-                    resp = 'Heroine'
-                if CommandParser.cards[x] == 'Drummer':
-                    resp = 'Drummer'
-                if CommandParser.cards[x] == 'Winter' and checkMercenaryCards():
-                    resp = 'Winter'
-            CommandParser.cards.remove(resp)
+    elif CommandParser.isWinter and 'Spring' in CommandParser.cards:
+        resp = 'Spring'
+    elif CommandParser.maxTheirsCard > CommandParser.maxOurCard and CommandParser.maxTheirsCard > 5 and 'Bishop' in CommandParser.cards:
+        resp = 'Bishop'
     else:
         sortedcards = deepcopy(CommandParser.cards)
         digits = []
@@ -107,11 +86,31 @@ def handle(args):
         if len(digits) > 0 :
             resp = digits[len(digits)-1]
             digits.remove(resp)
+        for x in range(len(CommandParser.cards)) :
+            if CommandParser.cards[x] == 'Heroine':
+                resp = 'Heroine'
+            if CommandParser.cards[x] == 'Drummer':
+                resp = 'Drummer'
+            if CommandParser.cards[x] == 'Winter' and checkMercenaryCards():
+                resp = 'Winter'
+#    else:
+#        sortedcards = deepcopy(CommandParser.cards)
+#        digits = []
+#        for x in range(len(sortedcards)) :
+#            if sortedcards[x].isdigit() :
+#                digits.append(sortedcards[x])
+#        digits.sort(key=int)
+#        ran = random.randint(0,len(CommandParser.cards)-1)
+#        resp = CommandParser.cards[ran]
+#        if len(digits) > 0 :
+#            resp = digits[len(digits)-1]
+#            digits.remove(resp)
 #        for x in range(len(CommandParser.cards)-1) :
 #                if CommandParser.cards[x] == 'Heroine':
 #                    resp = 'Heroine'
 #                if CommandParser.cards[x] == 'Drummer':
 #                    resp = 'Drummer'
-        CommandParser.cards.remove(resp)
+#        CommandParser.cards.remove(resp)
+    CommandParser.cards.remove(resp)
     TCPCommunicator.sendMessage(resp)
     return args[1:]

@@ -8,20 +8,28 @@ import CommandParser
 import Logger
 
 def handle(args):
+    card = args[0].split()[1];
     Logger.log("Command %s::" % args[0])
-    Logger.log("Player %s played %s" % (CommandParser.currentPlayer, args[0].split()[1]))
+    Logger.log("Player %s played %s" % (CommandParser.currentPlayer, card))
+    
     mercenaryCards = 0
     if CommandParser.currentPlayer in CommandParser.mercenaryCards.keys() :
         mercenaryCards = CommandParser.mercenaryCards[CommandParser.currentPlayer]
-    if (args[0].split()[1]).isdigit() :
+    if card.isdigit() :
         mercenaryCards += 1
     CommandParser.mercenaryCards[CommandParser.currentPlayer] = mercenaryCards
     Logger.log("mercenaryPoints %s : %s" %(CommandParser.currentPlayer, mercenaryCards))
-    if CommandParser.currentPlayer == CommandParser.ourPlayer and (args[0].split()[1]).isdigit():
-        if CommandParser.maxOurCard < int(args[0].split()[1]):
-            CommandParser.maxOurCard = int(args[0].split()[1])
-    elif (args[0].split()[1]).isdigit():
-        if CommandParser.maxTheirsCard < int(args[0].split()[1]):
-            CommandParser.maxTheirsCard = int(args[0].split()[1])
+    
+    if CommandParser.currentPlayer == CommandParser.ourPlayer and card.isdigit():
+        if CommandParser.maxOurCard < int(card):
+            CommandParser.maxOurCard = int(card)
+    elif card.isdigit():
+        if CommandParser.maxTheirsCard < int(card):
+            CommandParser.maxTheirsCard = int(card)
+            
+    if card == 'Winter':
+        CommandParser.isWinter = True
+    if card == 'Spring':
+        CommandParser.isWinter = False
 
     return args[1:]

@@ -15,4 +15,6 @@ def handle(args):
         CommandParser.occupiedRegion[CommandParser.ix(CommandParser.currentZone)] = 1
         if lower(team) == lower(CommandParser.ourPlayer):
             CommandParser.ourRegion[CommandParser.ix(CommandParser.currentZone)] = 1
+    CommandParser.maxOurCard = 0
+    CommandParser.maxTheirsCard = 0
     return args[1:]

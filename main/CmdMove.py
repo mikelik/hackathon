@@ -22,19 +22,18 @@ def handle(args):
     if len(CommandParser.cards) <= 0:
         resp = 'pass'
     elif 'Key' in CommandParser.cards:
-        maxi = 0
-        maxUser = ''
-        maxiSecond = 0
-        CommandParser.shouldThrowKeyCard = False
+        CommandParser.maxi = 0
+        CommandParser.maxUser = ''
+        CommandParser.maxiSecond = 0
                 
         for user in CommandParser.scoreMap.iterkeys():
-            if (maxi <= CommandParser.scoreMap[user]):
-                maxiSecond = maxi
-                maxUser = user
-                maxi = CommandParser.scoreMap[user]
+            if (CommandParser.maxi <= CommandParser.scoreMap[user]):
+                CommandParser.maxiSecond = CommandParser.maxi
+                CommandParser.maxUser = user
+                CommandParser.maxi = CommandParser.scoreMap[user]
                 
-        if maxUser == CommandParser.ourPlayer and int(maxiSecond) < int(maxi):
-            Logger.log('throw key, maxi=' + str(maxi) + ' maxiSecond=' + str(maxiSecond) + ' maxUser=' + maxUser)
+        if CommandParser.maxUser == CommandParser.ourPlayer and int(CommandParser.maxiSecond) < int(CommandParser.maxi):
+            Logger.log('throw key, maxi=' + str(CommandParser.maxi) + ' maxiSecond=' + str(CommandParser.maxiSecond) + ' maxUser=' + CommandParser.maxUser)
             indexKey =  CommandParser.cards.index('Key')
             resp = CommandParser.cards[indexKey]
             CommandParser.cards.remove(resp)
@@ -51,6 +50,9 @@ def handle(args):
                 resp = digits[len(digits)-1]
                 digits.remove(resp)
             CommandParser.cards.remove(resp)
+    elif CommandParser.maxTheirsCard > CommandParser.maxOurCard and CommandParser.maxTheirsCard > 5 and 'Bishop' in CommandParser.cards:
+        resp = 'Bishop'
+        CommandParser.cards.remove(resp)
     else:
         sortedcards = deepcopy(CommandParser.cards)
         digits = []

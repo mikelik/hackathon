@@ -72,7 +72,12 @@ for i in range(0, len(regions)):
 sortedNeighbours = deepcopy(regionNeighbours)
 sortedNeighbours.sort()
         
-shouldThrowKeyCard = False
+maxi = 0
+maxUser = ''
+maxiSecond = 0
+
+maxTheirsCard = 0
+maxOurCard = 0
 
 command = re.compile('^\s*([?\w]+)')
 empty_line = re.compile('^\s*$')

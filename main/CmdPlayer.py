@@ -8,7 +8,7 @@ import CommandParser
 import Logger
 
 def handle(args):
-    Logger.log('Command Player')
+    Logger.log("Command %s::" % args[0])
     CommandParser.currentPlayer=args[0].split()[1]
     Logger.log(CommandParser.currentPlayer)
     return args[1:]
